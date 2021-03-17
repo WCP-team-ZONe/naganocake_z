@@ -6,6 +6,7 @@
     <h2 class="inline product-title">商品一覧</h2>
   <% end %>
 
+  <!--count修正の必要あり-->
   <span>(全<%= @products.count %>件)</span>
 
   <div class="container product-container">
@@ -13,7 +14,7 @@
     <div class="product-box">
       <%= link_to (attachment_image_tag product, :image, :fill, 150, 150), product_path(product.id) %>
       <p><%= product.name %></p>
-      <p>¥<%= product.ex_price * @tax %></p>
+      <p>¥<%= product.ex_price * @tax.round %></p>
     </div>
     <% end %>
   </div>
