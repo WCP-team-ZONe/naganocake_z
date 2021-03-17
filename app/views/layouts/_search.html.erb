@@ -1,0 +1,6 @@
+<!--表示のみ-->
+<div class="search">
+  <%=form_with url:private_products_path do |f| %>
+    <%= f.text_field :search, placeholder: "Search" %>
+  <% end %>
+</div>
