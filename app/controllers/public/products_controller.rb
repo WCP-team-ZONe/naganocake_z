@@ -6,6 +6,8 @@ class Public::ProductsController < ApplicationController
   end
 
   def index
+    @products = Product.page(params[:page]).per(8).order(updated_at: :desc)
+    @tax = 1.1
   end
 
   def show
