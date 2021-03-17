@@ -7,7 +7,4 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :ex_price, presence: true
   validates :is_active, presence: true
-
-  # refile
-  attachment :image
 end
