@@ -12,5 +12,6 @@ class Public::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @tax = 1.1
   end
 end
