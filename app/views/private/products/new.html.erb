@@ -1,2 +1,20 @@
 <h1>Products#new</h1>
 <p>Find me in app/views/products/new.html.erb</p>
+
+<!--デモデータ入れる用-->
+<!--デモデータ保存後に削除予定-->
+<%= form_with model:@product, url:"/private/products", local:true do |f| %>
+  <%= f.attachment_field :image %>
+  <br>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.text_field :ex_price %>
+  <br>
+  <%= f.radio_button :is_active, true %>販売中
+  <br>
+  <%= f.radio_button :is_active, false %>販売停止中
+  <br>
+  <%= f.submit "送信" %>
+<% end %>
