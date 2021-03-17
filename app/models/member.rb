@@ -3,4 +3,22 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :addresses
+  has_many :cart_products
+  has_many :orders
+
+  validates :first_name, presence: true
+  validates :family_name, presence: true
+  validates :first_kana, presence: true
+  validates :family_kana, presence: true
+  validates :postal_code, presence: true
+  validates :postal_code, length: { is: 7 }
+  validates :address, presence: true
+  validates :phone_number, presence: true
+  validates :postal_code, length: { in: 10..11 }
+  validates :is_deleted, presence: true
+
+  validates :name, presence: true
+  validates :name, presence: true
 end
