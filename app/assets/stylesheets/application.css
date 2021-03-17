@@ -43,3 +43,11 @@ main {
 .paginate {
  text-align: center
 }
+
+.product-image {
+  margin-right: 15px;
+}
+
+.product-show-form {
+ padding-left: 15px;
+}
