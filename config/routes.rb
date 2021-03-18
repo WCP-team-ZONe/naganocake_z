@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
     delete 'cart_products' => "cart_products#clear"
     post 'cart_products' => "cart_products#add_products"
-    resources :cart_products, only:[:show,:update,:destroy,]
+    resources :cart_products, only:[:index,:update,:destroy,]
 
     resources :addresses, except:[:show,:new]
 
