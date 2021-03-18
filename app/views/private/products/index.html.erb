@@ -1,2 +1,38 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <h2>商品一覧</h2>
+            <div class="text-right">
+                <%= link_to "＋", new_private_product_path, class: "btn btn-defalt", style: "border-radius: 50%" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <table class="table table-hover table-resposive">
+                <thead>
+                    <tr class="active">
+                        <td>商品ID</td>
+                        <td>商品名</td>
+                        <td>税抜価格</td>
+                        <td>ジャンル</td>
+                        <td>販売ステータス</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @products.each do |product| %>
+                        <tr>
+                            <td><%= product.id%></td>
+                            <td><%= link_to product.name, private_product_path(product.id)%></td>
+                            <td><%= number_with_delimiter(product.ex_price) %></td>
+                            <td><%= product.genre_id.name %></td>
+                            <td><%= product.is_active %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+         <%= paginate @products, class: "pagenate" %>
+    </div>
+</div>

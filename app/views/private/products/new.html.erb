@@ -1,2 +1,39 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<div class="product-new">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-0">
+                <h2>商品新規登録</h2>
+            </div>
+        </div>
+                <%= form_with model:@product, local:true do |f| %>
+                    <div class="">
+                        <div class="form-group">
+                            <p>商品画像</p>
+                            <!--<　%= attachment_image_tag @product, :image, :fill, 60, 60, fallback: "no_image.jpg", size: "150x150" %>-->
+                            <!--<　%= f.attament_field :image, placeholder:"商品画像" %>-->
+                        </div>
+                        <div class="form-group">
+                            <%= f.label :name, "商品名" %>
+                            <%= f.text_field :name %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label :description, "商品説明" %>
+                            <%= f.text_area :description %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label :genre_id, "ジャンル" %>
+                            <!--< %= f.collection_select :genre_id, Genre.all, :id, :name, :prompt => "--選択してください--") %>-->
+                        </div>
+                        <div class="form-group">
+                            <%= f.label :ex_price, "税抜価格" %>
+                            <%= f.text_field :ex_price %>円
+                        </div>
+                        <div class="form-group">
+                            <P>販売ステータス</P>
+                            <!--< %= f.select :is_active, [["販売中",0]["売切れ",1]], include_black: "--選択してください--" %>-->
+                        </div>
+                    </div>    
+                    <%= f.submit "新規登録", class: "btn btn-primary" %>
+                <% end %>
+    </div>
+</div>
