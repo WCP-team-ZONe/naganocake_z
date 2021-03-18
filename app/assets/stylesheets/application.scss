@@ -36,6 +36,7 @@
   padding-left:120px;
 }
 
+
 .title-box {
   text-align: center;
   margin: 40px 0;
@@ -44,6 +45,30 @@
 .inline {
   display: inline-block;
 }
+
+
+.login-title{
+    background-color:#EEEEEE;
+    padding:0 15px;
+}
+
+.field-email{
+    padding-left:25%;
+    margin-bottom:5px;
+}
+
+.field-password{
+    padding-left:25%;
+}
+
+.field-email{
+    padding-left:25%;
+    margin-bottom:5px;
+}
+
+.inline {
+   display: inline-block;
+ }
 
 .product-title {
   margin: 10px;
@@ -56,13 +81,15 @@
 }
 
 .product-box {
- margin: 20px;
+ flex-basis :20%;
+ margin: 20px 10px;
 }
 
 .product-box > p {
   padding: 15px 5px 0;
   margin: 0;
   font-size: 1.1rem;
+
 }
 
 .paginate {
@@ -136,3 +163,4 @@
 .text-align-center {
   text-align: center;
 }
+
