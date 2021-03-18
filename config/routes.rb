@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   # 会員側ルーティング
-  devise_for :members
+  devise_for :members, controllers: {
+    sessions:      'members/sessions',
+    passwords:     'members/passwords',
+    registrations: 'members/registrations'
+  }
 
   scope module: :public do
     root to: "products#top"
@@ -28,7 +32,11 @@ Rails.application.routes.draw do
   end
 
   # 管理者側ルーティング
-  devise_for :admins
+  devise_for :admins, controllers: {
+    sessions:      'admins/sessions',
+    passwords:     'admins/passwords',
+    registrations: 'admins/registrations'
+  }
 
   namespace :private do
     resources :products
