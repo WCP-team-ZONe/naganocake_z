@@ -23,12 +23,15 @@
 .nav-name{
   padding:30px;
 }
+
 .search{
   padding-left:600px;
 }
+
 .Nagano-CAKE-image{
   padding-right:300px;
 }
+
 .nav-name-logout{
   padding-left:120px;
 }
@@ -112,4 +115,24 @@
 
 .into-cart {
   height: 40px;
+}
+
+.between-flex-lg {
+  width: 80%;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.between-flex {
+  width: 60%;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-align-center {
+  text-align: center;
 }

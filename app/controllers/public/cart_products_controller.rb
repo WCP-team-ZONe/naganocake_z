@@ -1,9 +1,10 @@
 class Public::CartProductsController < ApplicationController
-  before_action :authenticate_member!
+  # before_action :authenticate_member!
   before_action :set_tax
 
   def index
     @cart_products = CartProduct.all
+    @sum = 0
   end
 
   def update
@@ -19,7 +20,7 @@ class Public::CartProductsController < ApplicationController
     @add_product = CartProduct.new(cart_product_params)
     @add_product.member_id = current_member_id
     @add_product.save
-    redirect_to "index"
+    redirect_to cart_products_path
   end
 
   private
