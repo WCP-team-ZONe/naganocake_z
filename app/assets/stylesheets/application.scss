@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap";
 
 .nav-name{
@@ -26,4 +27,42 @@
 }
 .nav-name-logout{
     padding-left:120px;
+
+
+main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+ .inline {
+   display: inline-block;
+ }
+
+ .product-title {
+  margin: 10px;
+ }
+
+.product-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product-box {
+ flex-basis :20%;
+ margin: 20px 10px;
+}
+
+.paginate {
+ text-align: center
+}
+
+.product-image {
+  margin-right: 15px;
+}
+
+.product-show-form {
+ padding-left: 15px;
 }
