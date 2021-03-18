@@ -18,7 +18,4 @@ class Member < ApplicationRecord
   validates :phone_number, presence: true
   validates :postal_code, length: { in: 10..11 }
   validates :is_deleted, presence: true
-
-  validates :name, presence: true
-  validates :name, presence: true
 end
