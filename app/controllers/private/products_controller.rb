@@ -1,4 +1,6 @@
 class Private::ProductsController < ApplicationController
+  # before_action :authenticate_admin_user!
+
   def index
     @products = Product.page(params[:page]).per(10)
   end
@@ -35,7 +37,7 @@ class Private::ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:name, :description, :ex_price, :is_active, :image, :genre_id, :validation)
+      params.require(:product).permit(:name, :description, :ex_price, :is_active, :image, :genre_id)
     end
 end
 
