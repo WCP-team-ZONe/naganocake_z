@@ -23,16 +23,16 @@
       <ul class="nav navbar-nav navbar-right wf-mplus1p">
       <% if member_signed_in? %>
         <li class="nav-name">
-          ようこそ、<%= family_name(current_mamder) %>さん!
+          ようこそ、<%= current_member.family_name %>さん!
         </li>
         <li class="nav-name">
-          <%= link_to "マイページ", member_path(current_mamder), class: "btn btn-outline-secondary" %>
+          <%= link_to "マイページ", member_path(current_member), class: "btn btn-outline-secondary" %>
         </li>
         <li class="nav-name">
           <%= link_to "商品一覧", products_path, class: "btn btn-outline-secondary" %>
         </li>
         <li class="nav-name">
-          <%= link_to "カート", cart_product_path(current_mamder), class: "btn btn-outline-secondary" %>
+          <%= link_to "カート", cart_product_path(current_member), class: "btn btn-outline-secondary" %>
         </li>
         <li class="nav-name">
           <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-outline-secondary" %>
@@ -67,7 +67,7 @@
           <%= link_to "商品一覧", products_path, class: "btn btn-outline-secondary" %>
         </li>
         <li class="nav-name-logout">
-          <%= link_to "新規登録", new_member_session_path, class: "btn btn-outline-secondary" %>
+          <%= link_to "新規登録", new_member_registration_path, class: "btn btn-outline-secondary" %>
         </li>
         <li class="nav-name-logout">
           <%= link_to "ログイン", new_member_session_path, class: "btn btn-outline-secondary" %>
