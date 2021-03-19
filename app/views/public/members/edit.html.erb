@@ -1,2 +1,52 @@
-<h1>Public::Members#edit</h1>
-<p>Find me in app/views/public/members/edit.html.erb</p>
+<div calss="container">
+  <div class="row">
+    <div class="col-md-11 offset-md-1">
+
+      <div class="field col-md-2 offset-sm-1 py-5">
+        <h3 class="bg-light text-center">会員情報編集</h3>
+      </div>
+      <%= render "devise/shared/error_messages", resource: @member %>
+      <%= form_with model: @member, local: true do |f| %>
+
+      <div class="field col-md-12">
+        <%= f.label :"氏名", class:"col-sm-3" %>
+        <%= f.text_field :family_name, class:"col-sm-2" %>
+        <%= f.text_field :first_name, class:"col-sm-2 offset-xs-1" %>
+      </div>
+
+      <div class="field col-md-12">
+        <%= f.label :"フリガナ", class:"col-sm-3" %>
+        <%= f.text_field :family_kana, class:"col-sm-2" %>
+        <%= f.text_field :first_kana, class:"col-sm-2 offset-xs-1" %>
+      </div>
+
+      <div class="field col-md-12">
+        <%= f.label :"郵便番号", class:"col-sm-3" %>
+        <%= f.text_field :postal_code, class:"col-sm-2" %>
+      </div>
+
+      <div class="field col-md-12">
+        <%= f.label :"住所", class:"col-sm-3" %>
+        <%= f.text_field :address, class:"col-sm-5" %>
+      </div>
+
+      <div class="field col-md-12">
+        <%= f.label :"電話番号", class:"col-sm-3" %>
+        <%= f.text_field :phone_number, class:"col-sm-2" %>
+      </div>
+
+      <div class="field col-md-12">
+        <%= f.label :"メールアドレス", class:"col-sm-3" %>
+        <%= f.text_field :email, class:"col-sm-2" %>
+      </div>
+
+      <div class="field col-md-12 pt-3">
+        <%= f.submit "編集内容を保存", class:"col-sm-3 offset-sm-3 btn-success text-white" %>
+        <%= link_to "退会する", members_withdraw_path, class:"col-sm-3 offset-sm-1 btn-danger text-white" %>
+      </div>
+
+      <% end %>
+
+   </div>
+  </div>
+</div>
