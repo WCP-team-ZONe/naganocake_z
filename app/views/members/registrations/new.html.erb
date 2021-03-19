@@ -54,7 +54,7 @@
         <%= f.label :"パスワード(確認用)", class:"col-sm-3" %>
         <%= f.password_field :password_confirmation, class:"col-sm-3" %>
       </div>
-      <%= f.hidden_field :is_deleted, value: 0 %>
+      <%= f.hidden_field :is_deleted, value: 1 %>
 
       <div class="actions col-md-12">
         <%= f.submit "新規登録", class:"col-sm-3 offset-sm-3 btn-success text-white" %>
