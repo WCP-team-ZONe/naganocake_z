@@ -1,2 +1,46 @@
-<h1>Members#index</h1>
-<p>Find me in app/views/members/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h4 class="orders-title"><span class="orders-title-span">会員一覧</span></h4>
+
+        <table class="col-8 mx-auto">
+         <thead class="orders-nav border-top border-bottom">
+           <tr>
+             <th class="p-2">会員ID</th>
+             <th class="p-2">氏名</th>
+             <th class="p-2">メールアドレス</th>
+             <th class="p-2">ステータス</th>
+           </tr>
+          </thead>
+
+          <tbody class="border-bottom">
+            <% @members.each do |member| %>
+              <tr>
+                <td class="p-2 border-bottom">
+                  <%= member.id %>
+                </td>
+                <td class="p-2 border-bottom">
+                  <%= link_to private_member_path(member) do  %>
+                    <%= member.family_name%><%= member.first_name %>
+                  <% end %>
+                </td>
+                <td class="p-2 border-bottom">
+                  <%= member.email %>
+                </td>
+                <td class="p-2 border-bottom">
+                  <% if member.is_deleted == false %>
+                    <p class="text-black-50">退会</p>
+                  <% else %>
+                    <p class="text-success">有効</p>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        
+      <div class="text-center"><%= paginate(@members_page) %></div>  
+        
+    </div>
+  </div>
+</div>
