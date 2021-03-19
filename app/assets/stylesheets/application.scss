@@ -20,6 +20,15 @@
   box-sizing: border-box;
 }
 
+.notice {
+  width: 80%;
+  margin: 50px auto;
+  text-align: center;
+  color: green;
+  font-size: 1.2rem;
+  font-weigth: bold;
+}
+
 .nav-name{
   padding:30px;
 }
@@ -82,14 +91,13 @@
 
 .product-box {
  flex-basis :20%;
- margin: 20px 10px;
+ margin: 20px;
 }
 
 .product-box > p {
   padding: 15px 5px 0;
   margin: 0;
   font-size: 1.1rem;
-
 }
 
 .paginate {
@@ -152,15 +160,50 @@
   align-items: center;
 }
 
-.between-flex {
-  width: 60%;
-  margin: 30px auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.total-price-table {
+  width: 40%;
+  margin-bottom: 0;
 }
 
-.text-align-center {
+.table-borderd tr, th, td {
   text-align: center;
 }
 
+.change-quantity {
+  margin-right: 20px;
+}
+
+.bigger-btn {
+  padding: 0.7rem;
+}
+
+.biggest-btn {
+  padding: 0.7rem 3rem;
+}
+
+.empty-message {
+  width: 70%;
+  font-size: 2rem;
+  color: #d3d3d3;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.link-to-top {
+  width: 70%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.align-middle {
+  font-size: 1.2rem;
+}
+
+.bgc-gray {
+  background-color: #dee2e6;
+}
+
+.go-to-input {
+  text-align: center;
+  margin: 50px 0 30px;
+}
