@@ -1,2 +1,41 @@
-<h1>Orders#index</h1>
-<p>Find me in app/views/orders/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h4 class="orders-title mt-5 mb-2"><span class="orders-title-span">注文履歴一覧</span></h4>
+        <table>
+
+         <thead class="orders-nav border-top border-bottom">
+           <tr>
+             <th>購入日時</th>
+             <th>購入者</th>
+             <th>注文個数</th>
+             <th>注文ステータス</th>
+           </tr>
+          </thead>
+
+          <tbody>
+            <% @orders.each do |order| %>
+              <tr>
+                <tb>
+                  <%= link_to private_orders_path(order) do %>
+                    <%= order.created_at %>
+                  <% end %>
+                </tb>
+                <tb>
+                  <%= family_name(order.member) %><%= first_name(order.member) %>
+                </tb>
+                <tb>
+                  <%= order.order_products.count %>
+                </tb>
+                <tb>
+                  <%= order.order_status %>
+                </tb>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+     <%= paginate  @orders_page %>
+
+    </div>
+  </div>
+</div>
