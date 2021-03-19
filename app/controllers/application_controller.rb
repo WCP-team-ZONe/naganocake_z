@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
+      #サインイン後の遷移パス
   def after_sign_in_path_for(resource)
     if member_signed_in?
       root_path
@@ -10,7 +11,17 @@ class ApplicationController < ActionController::Base
       private_orders_path
     end
   end
-
+  
+      #サインアップ後の遷移パス
+  def after_sign_up_path(resource)
+    if meber_sined_up?
+      member_path(current_member)
+    else
+      private_orders_path
+    end
+  end
+  
+      #サインアウト後の遷移
   def after_sign_out_path_for(resource)
     root_path
   end
