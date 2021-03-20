@@ -1,2 +1,64 @@
-<h1>Members#show</h1>
-<p>Find me in app/views/members/show.html.erb</p>
+<div class="container">
+    <h4 class="col-12 my-5">
+      <span class="member-title">
+        <%= @member.family_name%><%= @member.first_name %>さんの会員詳細
+      </span>
+    </h4>
+
+      <div class="row">
+        <div class="col-3">
+        <div class="field">
+          <p>会員ID </p>
+        </div>
+
+        <div class="field ">
+          <p>氏名</p>
+        </div>
+
+        <div class="field ">
+          <p>フリガナ</p>
+        </div>
+
+        <div class="field ">
+          <p>郵便番号</p>
+        </div>
+
+        <div class="field ">
+          <p>住所</p>
+        </div>
+
+        <div class="field ">
+          <p>電話番号</p>
+        </div>
+
+        <div class="field ">
+          <p>メールアドレス</p>
+        </div>
+
+         <div class="field ">
+          <p>会員ステータス</p>
+        </div>
+        </div>
+
+          <div class="col-9">
+            <p><%= @member.id %></p>
+            <p><%= @member.family_name %> 　 <%= @member.first_name %></p>
+            <p><%= @member.family_kana %> 　 <%= @member.first_kana %></p>
+            <p><%= @member.postal_code %></p>
+            <p><%= @member.address %></p>
+            <p><%= @member.phone_number %></p>
+            <p><%= @member.email %></p>
+            <p>
+              <% if @member.is_deleted == false %>
+                <p class="text-black-50">退会</p>
+              <% else %>
+                <p class="text-success">有効</p>
+              <% end %></p>
+          </div>
+      </div>
+
+      <div class="col-10 text-center">
+        <%= link_to "編集する", edit_private_member_path(@member), class: "btn btn-success mr-5 "%>
+        <%= link_to "注文履歴一覧を見る", private_orders_path(@member.id), class: "btn btn-primary ml-5" %>
+      </div>
+</div>
