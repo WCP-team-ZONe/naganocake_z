@@ -18,13 +18,13 @@ Rails.application.routes.draw do
     resources :products, only:[:index,:show]
 
     get 'orders/complete' => "orders#complete"
-    get 'orders/:id/input' => "orders#input"
-    post 'orders/:id/check' => "orders#check"
+    get 'orders/input' => "orders#input"
+    post 'orders/check' => "orders#check"
     resources :orders, only:[:index,:show,:create]
 
     delete 'cart_products' => "cart_products#clear"
     post 'cart_products' => "cart_products#add_products"
-    resources :cart_products, only:[:show,:update,:destroy,]
+    resources :cart_products, only:[:index,:update,:destroy,]
 
     resources :addresses, except:[:show,:new]
 

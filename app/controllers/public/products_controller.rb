@@ -1,4 +1,6 @@
 class Public::ProductsController < ApplicationController
+  before_action :set_tax
+
   def top
   end
 
@@ -6,11 +8,12 @@ class Public::ProductsController < ApplicationController
   end
 
   def index
+    @products_count = Product.all
     @products = Product.page(params[:page]).per(8).order(updated_at: :desc)
-    @tax = 1.1
   end
 
   def show
     @product = Product.find(params[:id])
+    @add_product = CartProduct.new
   end
 end
