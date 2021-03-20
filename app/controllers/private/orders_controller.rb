@@ -1,10 +1,7 @@
 class Private::OrdersController < ApplicationController
 
-  PER = 10
-
   def index
-    @orders = Order.all
-    @orders_page = Order.page(params[:page]).per(PER)
+    @orders = Order.all.page(params[:page]).per(10)
   end
 
   def show
@@ -12,5 +9,5 @@ class Private::OrdersController < ApplicationController
 
   def update
   end
-  
+
 end

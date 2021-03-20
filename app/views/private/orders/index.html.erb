@@ -2,40 +2,40 @@
   <div class="row">
     <div class="col-12">
       <h4 class="orders-title mt-5 mb-2"><span class="orders-title-span">注文履歴一覧</span></h4>
-        <table>
 
+        <table class="col-8 mx-auto">
          <thead class="orders-nav border-top border-bottom">
            <tr>
-             <th>購入日時</th>
-             <th>購入者</th>
-             <th>注文個数</th>
-             <th>注文ステータス</th>
+             <th class="p-2">購入日時</th>
+             <th class="p-2">購入者</th>
+             <th class="p-2">注文個数</th>
+             <th class="p-2">注文ステータス</th>
            </tr>
           </thead>
 
           <tbody>
             <% @orders.each do |order| %>
               <tr>
-                <tb>
+                <td class="p-2 border-bottom">
                   <%= link_to private_orders_path(order) do %>
                     <%= order.created_at %>
                   <% end %>
-                </tb>
-                <tb>
+                </td>
+                <td class="p-2 border-bottom">
                   <%= family_name(order.member) %><%= first_name(order.member) %>
-                </tb>
-                <tb>
+                </td>
+                <td class="p-2 border-bottom">
                   <%= order.order_products.count %>
-                </tb>
-                <tb>
+                </td>
+                <td class="p-2 border-bottom">
                   <%= order.order_status %>
-                </tb>
+                </td>
               </tr>
             <% end %>
           </tbody>
         </table>
-     <%= paginate  @orders_page %>
 
     </div>
+      <div ="mx-auto"><%= paginate(@orders) %></div>
   </div>
 </div>
