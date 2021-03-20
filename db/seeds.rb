@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 # デモ商品データ(9つ)
 9.times do |n|
   Product.create!(
@@ -15,4 +16,3 @@
     image: File.open("./app/assets/images/demo_product_image/naganocake#{n + 1}.jpg")
   )
 end
-
