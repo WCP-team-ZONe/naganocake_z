@@ -8,11 +8,11 @@
 
 # デモ商品データ(9つ)
 9.times do |n|
-    Products.create!(
-      name: "demo商品#{n + 1}",
-      description: "説明文説明文説明文#{n + 1}",
-      ex_price: "99#{n + 1}",
-      is_active: "0",
-      image_id: File.open('./app/assets/images/demo_product_image/naganocake#{n + 1}.jpg')
-    )
+  Product.create!(
+    name: "demo商品#{n + 1}",
+    description: "説明文説明文説明文#{n + 1}",
+    ex_price: "100#{n + 1}",
+    is_active: 1,
+    image: File.open("./app/assets/images/demo_product_image/naganocake#{n + 1}.jpg")
+  )
 end
