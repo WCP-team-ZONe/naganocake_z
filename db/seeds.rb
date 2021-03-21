@@ -14,14 +14,20 @@
 end
 
 # デモ商品データ(9つ)
+2.times do |n|
+  Genre.create!(
+    name: "ケーキ#{n + 1}",
+    )
+end
+
 9.times do |n|
-    Product.create!(
-      name: "demo商品#{n + 1}",
-      description: "説明文説明文説明文#{n + 1}",
-      ex_price: "100#{n + 1}",
-      is_active: 1,
-      genre_id: 1,
-      image: File.open("./app/assets/images/demo_product_image/naganocake#{n + 1}.jpg")
+  Product.create!(
+    genre_id: 1,
+    name: "demo商品#{n + 1}",
+    description: "説明文説明文説明文#{n + 1}",
+    ex_price: "100#{n + 1}",
+    is_active: 1,
+    image: File.open("./app/assets/images/demo_product_image/naganocake#{n + 1}.jpg")
   )
 end
 
