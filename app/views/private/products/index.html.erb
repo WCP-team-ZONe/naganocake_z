@@ -45,10 +45,14 @@
                                 <%= number_with_delimiter(product.ex_price) %>
                             </td>
                             <td>
-                                <%= product.genre_id.name %>
+                                <%= product.genre_id %>
                             </td>
                             <td class="text-right">
-                                <%= product.is_active %>
+                                <% if product.is_active == true %>
+                                  <p class="text-success">販売中</p>
+                                <% elsif product.is_active == false %>
+                                  <p class="text-muted">販売停止中</p>
+                                <% end %>
                             </td>
                         </tr>
                     <% end %>

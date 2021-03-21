@@ -1,2 +1,95 @@
-<h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
+<div class="container">
+    <div class="row">
+        <h2><span style="background-color:#f5f5f5">商品編集</span></h2>
+    </div>
+
+         <%= form_with model: @product, url:private_product_path(@product.id), local: true  do |f| %>
+         <!--< %= form_with model:@product, local: true do |f| %>-->
+            <div class="row">
+                <table>
+                    <div class="col-xs-4">
+                        <tr>
+                            <td width="150">
+                                商品画像
+                            </td>
+                            <td>
+                                <%= attachment_image_tag @product, :image,format: "jpg", fallback: "no_image.jpg", size:"50x50" %>
+                                <%= f.attachment_field :image, placeholder:"商品画像" %>
+                            </td>
+                        </tr>
+                     </div>
+                    <div class="form-group">
+                        <tr>
+                            <td>
+                                <%= f.label :name, "商品名" %>
+                            </td>
+                            <td>
+                                <%= f.text_field :name, placeholder: "商品名" %>
+                            </td>
+                        </tr>
+                    </div>
+                    <div class="form-group">
+                        <tr>
+                            <td>
+                                <%= f.label :description, "商品説明" %>
+                            </td>
+                            <td>
+                                <%= f.text_area :description, placeholder: "ここに説明文を記述します", size: "30x5" %>
+                            </td>
+                        </tr>
+                    </div>
+                    <div class="form-group">
+                        <tr>
+                            <td>
+                                <%= f.label :genre_id, "ジャンル" %>
+                            </td>
+                            <td>
+                                <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "-- 選択してください --", class: 'form-control' %>
+                            </td>
+                        </tr>
+                    </div>
+                    <div class="form-group">
+                        <tr>
+                            <td>
+                                <%= f.label :ex_price, "税抜価格" %>
+                            </td>
+                            <td>
+                                <%= f.text_field :ex_price, placeholder: "1000" %>円
+                            </td>
+                        </tr>
+                    </div>
+                    <div class="form-group">
+                        <tr>
+                            <td>
+                                <%= f.label :is_active, "販売ステータス" %>
+                            </td>
+                            <td>
+                                <%= f.radio_button :is_active, true %>
+                                <%= f.label :is_active, "販売中", value: true %>
+
+                                <%= f.radio_button :is_active, true %>
+                                <%= f.label :is_active, "販売停止中", value:false %>
+
+
+                                <!--< %= f.radio_button :is_active, "販売中":"1", checked: true %>-->
+                                <!--< %= f.radio_button :is_active, "販売停止中":"2", checked: false %>-->
+                                <!--< %= f.select :is_active, {"販売中":"true", "販売停止中":"false"} %>-->
+                            </td>
+                        </tr>
+                    </div>
+
+                    <div class="submit-btn">
+                    <!--<div class="col-xs-4 col-xs-offset-8">-->
+                        <tr>
+                            <td>
+                                <%= f.submit "変更を保存" , class: "btn btn-primary"  %>
+                            </td>
+                        </tr>
+                    </div>
+                </table>
+            </div>
+        <% end %>
+
+
+    </div>
+</div>
