@@ -55,8 +55,8 @@ end
 2.times do |n|
     Address.create!(
       name: "宛先その#{n + 1}",
-      postal_code: "1008111",
-      address: "東京都千代田区千代田",
+      postal_code: "1234567",
+      address: "北海道のどこか",
       member_id: 2,
     )
 end
