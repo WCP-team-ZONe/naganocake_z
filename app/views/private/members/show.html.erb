@@ -49,11 +49,12 @@
             <p><%= @member.phone_number %></p>
             <p><%= @member.email %></p>
             <p>
-              <% if @member.is_deleted == false %>
-                <p class="text-black-50">退会</p>
-              <% else %>
+              <% if @member.is_deleted == true %>
                 <p class="text-success">有効</p>
-              <% end %></p>
+              <% else %>
+                <p class="text-black-50">退会</p>
+              <% end %>
+              </p>
           </div>
       </div>
 

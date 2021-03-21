@@ -1,2 +1,60 @@
-<h1>Members#edit</h1>
-<p>Find me in app/views/members/edit.html.erb</p>
+<div class="container">
+    <h4 class="col-12 my-5">
+      <span class="member-title">
+        <%= @member.family_name%><%= @member.first_name %>さんの会員詳細編集
+      </span>
+    </h4>
+     <%= form_with model: @member, url:private_member_path, local: true ,method: :patch  do |f| %>
+      <div class="row">
+        <div class="col-md-12">
+          <%= f.label :"会員ID", class:"col-sm-2 my-2" %>
+          <%= @member.id %>
+        </div>
+
+       <div class="col-md-12">
+        <%= f.label :"名前", class:"col-sm-2 my-2" %>
+        <%= f.text_field :family_name, class:"col-xs-3 mr-5 rounded" %>
+        <%= f.text_field :first_name, class:"col-xs-3 rounded" %>
+       </div>
+
+        <div class="col-md-12">
+          <%= f.label :"フリガナ", class:"col-sm-2 my-2" %>
+          <%= f.text_field :family_kana, class:"col-xs-3 mr-5 rounded" %>
+          <%= f.text_field :first_kana, class:"col-xs-3 rounded" %>
+        </div>
+
+        <div class="col-md-12">
+          <%= f.label :"郵便番号", class:"col-sm-2 my-2" %>
+          <%= f.text_field :postal_code, class:"col-xs-3 rounded" %>
+        </div>
+
+        <div class="col-md-12">
+          <%= f.label :"住所", class:"col-sm-2 my-2" %>
+          <%= f.text_field :address, class:"col-xs-3 rounded" %>
+        </div>
+
+        <div class="col-md-12">
+          <%= f.label :"電話番号", class:"col-sm-2 my-2" %>
+          <%= f.text_field :phone_number, class:"col-xs-3 rounded" %>
+        </div>
+
+        <div class="col-md-12">
+          <%= f.label :"メールアドレス", class:"col-sm-2 my-2" %>
+          <%= f.text_field :email, class:"col-xs-3 rounded" %>
+        </div>
+
+        <div class="col-md-12">
+          <%= f.label :"会員ステータス", class:"col-sm-2 my-2" %>
+          <%= f.radio_button :is_deleted, true %>
+          <%= f.label :is_deleted, "有効", {value: :true,} %>
+          <%= f.radio_button :is_deleted, false %>
+          <%= f.label :is_deleted, "退会", {value: :false,} %>
+        </div>
+
+        <div class="col-12">
+        <%= f.submit "変更を保存する" ,class: "btn btn-primary" %>
+        </div>
+        
+        <% end %>
+  </div>
+</div>
