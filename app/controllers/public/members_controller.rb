@@ -1,5 +1,13 @@
 class Public::MembersController < ApplicationController
+  
+  before_action :authenticate_member!#ログインユーザのみ実行
+  
   def out
+    @member = current_member
+    @member.update(is_deleted: true )
+    reset_session #ログアウトさせる
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
 
   def withdraw
