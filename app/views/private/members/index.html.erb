@@ -28,7 +28,7 @@
                   <%= member.email %>
                 </td>
                 <td class="p-2 border-bottom">
-                  <% if member.is_deleted == true %>
+                  <% if member.is_deleted == false %>
                     <p class="text-success">有効</p>
                   <% else %>
                     <p class="text-black-50">退会</p>

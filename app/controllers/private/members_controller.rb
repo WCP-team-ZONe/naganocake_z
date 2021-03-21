@@ -16,6 +16,7 @@ class Private::MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
       if @member.update(member_params)
+        flash[:succsess] = "会員情報を変更しました"
         redirect_to private_member_path(@member)
       else
         render "edit"

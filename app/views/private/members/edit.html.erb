@@ -45,16 +45,16 @@
 
         <div class="col-md-12">
           <%= f.label :"会員ステータス", class:"col-sm-2 my-2" %>
-          <%= f.radio_button :is_deleted, true %>
-          <%= f.label :is_deleted, "有効", {value: :true,} %>
           <%= f.radio_button :is_deleted, false %>
-          <%= f.label :is_deleted, "退会", {value: :false,} %>
+          <%= f.label :is_deleted, "有効", {value: :false,} %>
+          <%= f.radio_button :is_deleted, true %>
+          <%= f.label :is_deleted, "退会", {value: :true,} %>
         </div>
 
         <div class="col-12">
         <%= f.submit "変更を保存する" ,class: "btn btn-primary" %>
         </div>
         
-        <% end %>
+    <% end %>
   </div>
 </div>
