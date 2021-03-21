@@ -17,7 +17,7 @@
   )
 end
 
-  # 会員デモデータ(11人)
+# 会員デモデータ(11人)
 11.times do |n|
     Member.create!(
       family_name: "令和",
@@ -33,6 +33,7 @@ end
     )
 end
 
+#配送先デモデータ(3つ)
 3.times do |n|
   Address.create!(
     name: "宛先その#{n + 1}",
@@ -40,7 +41,6 @@ end
     address: "東京都千代田区千代田",
     member_id: 1,
   )
-
 end
 
 2.times do |n|
@@ -50,5 +50,4 @@ end
     address: "北海道のどこか",
     member_id: 2,
   )
-
 end
