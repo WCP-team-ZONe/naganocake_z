@@ -14,37 +14,74 @@
  *= require_self
  */
 
- @import "bootstrap";
+@import "bootstrap";
+
+* {
+  box-sizing: border-box;
+}
+
+.notice {
+  width: 80%;
+  margin: 50px auto;
+  text-align: center;
+  color: green;
+  font-size: 1.2rem;
+  font-weigth: bold;
+}
 
 .nav-name{
-    padding :30px;
+  padding:30px;
 }
+
 .search{
-    padding-left:600px;
+  padding-left:600px;
 }
+
 .Nagano-CAKE-image{
-    padding-right:300px;
+  padding-right:300px;
 }
+
 .nav-name-logout{
-    padding-left:120px;
+  padding-left:120px;
 }
 
-main {
-  width: 80%;
-  margin: 0 auto;
+.title-box {
+  text-align: center;
+  margin: 40px 0;
 }
 
- .inline {
+.inline {
+  display: inline-block;
+}
+
+.login-title{
+    background-color:#EEEEEE;
+    padding:0 15px;
+}
+
+.field-email{
+    padding-left:25%;
+    margin-bottom:5px;
+}
+
+.field-password{
+    padding-left:25%;
+}
+
+.field-email{
+    padding-left:25%;
+    margin-bottom:5px;
+}
+
+.inline {
    display: inline-block;
  }
 
- .product-title {
+.product-title {
   margin: 10px;
- }
+}
 
 .product-container {
-  width: 80%;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -52,15 +89,57 @@ main {
 
 .product-box {
  flex-basis :20%;
- margin: 20px 10px;
+ margin: 20px;
+}
+
+.product-box > p {
+  padding: 15px 5px 0;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.field-email{
+    padding-left:25%;
+    margin-bottom:5px;
 }
 
 .paginate {
- text-align: center
+  padding: 20px 0;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.pagination > span {
+  padding: 5px 10px;
+  margin: 0 10px;
+  border: 1px solid #f5f5f5;
+  background-color: #f5f5f5;
+}
+
+.product-show-box {
+  margin: 120px 20px 0;
+  display: flex;
+  justify-content: center;
 }
 
 .product-image {
-  margin-right: 15px;
+  margin-right: 50px;
+}
+
+.product-info > h3, p {
+  margin-bottom: 20px;
+}
+
+.taxed_price {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.taxed_price > span {
+  font-size: 0.8rem;
+  font-weight: 100;
 }
 
 .product-show-form {
@@ -80,4 +159,215 @@ table {
 
 .form-group {
     padding: 10px 0px;
+}
+
+.field-password{
+ padding-left: 25%;
+}
+
+.select-quantity{
+  margin-right: 30px;
+  height: 30px;
+}
+
+.into-cart {
+  height: 40px;
+}
+
+.between-flex-lg {
+  width: 80%;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-price-table {
+  width: 40%;
+  margin-bottom: 0;
+}
+
+.table-borderd tr, th, td {
+  text-align: center;
+}
+
+.change-quantity {
+  margin-right: 20px;
+}
+
+.bigger-btn {
+  padding: 0.7rem;
+}
+
+.biggest-btn {
+  padding: 0.7rem 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.empty-message {
+  width: 70%;
+  font-size: 2rem;
+  color: #d3d3d3;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.link-to-top {
+  width: 70%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.align-middle {
+  font-size: 1.2rem;
+}
+
+.bgc-gray {
+  background-color: #dee2e6;
+}
+
+.go-to-input {
+  text-align: center;
+  margin: 50px 0 30px;
+}
+
+// 注文入力画面
+
+.page-title {
+  display: inline-block;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  margin: 40px;
+}
+
+.payment-area {
+  margin-bottom: 50px;
+  background: rgba(175, 238, 238,0.2);
+}
+
+.address-area {
+  margin-bottom: 50px;
+  background: rgba(175, 238, 238,0.2);
+}
+
+.order-title, .address-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 15px 0;
+  margin: 0 15px;
+}
+
+.radio-button {
+  margin-right: 10px;
+  transform:scale(1.5);
+}
+
+.input-section {
+  margin-left: 60px;
+  padding-bottom: 15px;
+}
+
+.input-section > div {
+  margin-left: 30px;
+}
+
+.input-section > div > p {
+  padding: 10px 0;
+}
+
+.new-address-box {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.new-address-label {
+  width: 30%;
+}
+
+.small-text {
+  font-size: 0.7rem;
+}
+
+.long-form {
+  width: 40%;
+}
+
+.go-to-check {
+  text-align:center;
+  margin: 40px 0;
+}
+
+.select-having-address {
+  width: 80%;
+  height: 30px;
+}
+
+
+// 注文完了画面
+.complete-box {
+  text-align: center;
+  height: 300px;
+}
+
+.complete-message {
+  font-size: 1.7rem;
+  line-height: 300px;
+  letter-spacing: 2px;
+}
+
+
+// 注文確認画面
+
+.reverse-table {
+  -ms-writing-mode : tb-lr;
+  writing-mode : vertical-lr;
+}
+
+td > span, th > span{
+  -ms-writing-mode : lr-tb;
+  writing-mode : horizontal-tb;
+  white-space : nowrap;
+}
+
+.white {
+  text-align:center;
+  background-color:white!important;
+}
+
+.order-products-index {
+  margin-bottom: 50px;
+}
+
+.check-flex {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.check-flex > p {
+  margin: 0;
+}
+
+.check-address {
+  width: 100%;
+}
+
+.order-create {
+  margin: 30px 0;
+  text-align: center;
+}
+
+// フッター
+
+footer {
+  margin-top: 50px;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+footer > p {
+  padding: 30px 0;
+  margin-bottom: 0;
+  opacity: 0.5;
 }

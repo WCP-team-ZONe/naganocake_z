@@ -9,4 +9,6 @@ class Order < ApplicationRecord
   validates :payment, presence: true
   validates :total_price, presence: true
   validates :order_status, presence: true
+
+  enum payment: { "1":1, "0":0 }
 end

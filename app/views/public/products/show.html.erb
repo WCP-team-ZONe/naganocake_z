@@ -1,7 +1,7 @@
 <main>
-  <div class="product-box container">
+  <div class="container product-show-box">
     <div class="product-image">
-      <%= attachment_image_tag @product, :image, :fill, 150, 150 %>
+      <%= attachment_image_tag @product, :image, :fill, 250, 200 %>
     </div>
 
     <div class="product-info">
@@ -11,22 +11,24 @@
       <p>
         <%= @product.description %>
       </p>
-      <h4>
+      <p class="taxed_price">
         ¥
-        <%= @product.ex_price * @tax %>
+        <%= (@product.ex_price * @tax).floor.to_s(:delimited) %>
         <span>(税込)</span>
-      </h4>
+      </p>
+
+      <div class="product-show-form">
+        <%= form_with model: @add_product, url: cart_products_path, local:true do |f| %>
+          <%= f.hidden_field :product_id, value: @product.id %>
+          
+          <%= f.select :quantity,
+            {"1":1, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10},
+            { include_blank: '個数選択　　'},
+            class:"select-quantity"
+          %>
+          <%= f.submit "カートに入れる", class:"btn btn-sm btn-success into-cart" %>
+        <% end %>
+      </div>
     </div>
-  </div>
-
-  <div class="product-show-form">
-    <%= form_with url: cart_products_path, local:true do |f| %>
-      <%= f.select :quantity,
-        {0:0,1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10:10},
-        { include_blank: '個数選択'}
-      %>
-
-      <%= f.submit "カートに入れる" class:"btn btn-sm btn-success" %>
-    <% end %>
   </div>
 </main>
