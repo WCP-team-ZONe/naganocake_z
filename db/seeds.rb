@@ -52,7 +52,7 @@ end
 end
 
 #配送先デモデータ(2つ)(違う会員id)
-3.times do |n|
+2.times do |n|
     Address.create!(
       name: "宛先その#{n + 1}",
       postal_code: "1008111",
