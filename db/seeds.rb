@@ -8,12 +8,12 @@
 
 # デモ商品データ(9つ)
 9.times do |n|
-    Product.create!(
-      name: "demo商品#{n + 1}",
-      description: "説明文説明文説明文#{n + 1}",
-      ex_price: "100#{n + 1}",
-      is_active: 1,
-      image: File.open("./app/assets/images/demo_product_image/naganocake#{n + 1}.jpg")
+  Product.create!(
+    name: "demo商品#{n + 1}",
+    description: "説明文説明文説明文#{n + 1}",
+    ex_price: "100#{n + 1}",
+    is_active: 1,
+    image: File.open("./app/assets/images/demo_product_image/naganocake#{n + 1}.jpg")
   )
 end
 
@@ -35,10 +35,19 @@ end
 
 #配送先デモデータ(3つ)
 3.times do |n|
-    Address.create!(
-      name: "宛先その#{n + 1}",
-      postal_code: "1008111",
-      address: "東京都千代田区千代田",
-      member_id: 1,
-    )
+  Address.create!(
+    name: "宛先その#{n + 1}",
+    postal_code: "1008111",
+    address: "東京都千代田区千代田",
+    member_id: 1,
+  )
+end
+
+2.times do |n|
+  Address.create!(
+    name: "宛先その#{n + 1}",
+    postal_code: "1234567",
+    address: "北海道のどこか",
+    member_id: 2,
+  )
 end
