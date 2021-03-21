@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       private_orders_path
     end
   end
-  
+
       #サインアップ後の遷移パス
   def after_sign_up_path(resource)
     if meber_sined_up?
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
       private_orders_path
     end
   end
-  
+
       #サインアウト後の遷移
   def after_sign_out_path_for(resource)
     root_path
@@ -34,5 +34,10 @@ class ApplicationController < ActionController::Base
   # 消費税
   def set_tax
     @tax = 1.1
+  end
+
+  # 送料
+  def postage
+    @postage = 800
   end
 end
