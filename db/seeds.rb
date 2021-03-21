@@ -50,3 +50,13 @@ end
       member_id: 1,
     )
 end
+
+#配送先デモデータ(2つ)(違う会員id)
+3.times do |n|
+    Address.create!(
+      name: "宛先その#{n + 1}",
+      postal_code: "1008111",
+      address: "東京都千代田区千代田",
+      member_id: 2,
+    )
+end
