@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#ジャンル名
+2.times do |n|
+    Genre.create!(
+      name: "ケーキ#{n + 1}",
+  )
+end
+
 # デモ商品データ(9つ)
 2.times do |n|
   Genre.create!(
@@ -42,19 +49,20 @@ end
 
 #配送先デモデータ(3つ)
 3.times do |n|
-  Address.create!(
-    name: "宛先その#{n + 1}",
-    postal_code: "1008111",
-    address: "東京都千代田区千代田",
-    member_id: 1,
-  )
+    Address.create!(
+      name: "宛先その#{n + 1}",
+      postal_code: "1008111",
+      address: "東京都千代田区千代田",
+      member_id: 1,
+    )
 end
 
+#配送先デモデータ(2つ)(違う会員id)
 2.times do |n|
-  Address.create!(
-    name: "宛先その#{n + 1}",
-    postal_code: "1234567",
-    address: "北海道のどこか",
-    member_id: 2,
-  )
+    Address.create!(
+      name: "宛先その#{n + 1}",
+      postal_code: "1234567",
+      address: "北海道のどこか",
+      member_id: 2,
+    )
 end

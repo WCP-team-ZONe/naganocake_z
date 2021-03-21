@@ -19,7 +19,7 @@ class Member < ApplicationRecord
   validates :phone_number, length: { in: 10..11 }
   #validates :is_deleted, presence: true これだとmember == falseの時エラーがでる
   validates :is_deleted, inclusion: { in: [true, false] }
-  
+
   #「退会してる？」を判別
   def active_for_authentication?
     super && (self.is_deleted == false)

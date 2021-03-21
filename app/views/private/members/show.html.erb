@@ -1,3 +1,7 @@
+<p class="mx-auto">
+ <% flash[:succsess] %>
+</p>
+
 <div class="container">
     <h4 class="col-12 my-5">
       <span class="member-title">
@@ -50,10 +54,11 @@
             <p><%= @member.email %></p>
             <p>
               <% if @member.is_deleted == false %>
-                <p class="text-black-50">退会</p>
-              <% else %>
                 <p class="text-success">有効</p>
-              <% end %></p>
+              <% else %>
+                <p class="text-black-50">退会</p>
+              <% end %>
+              </p>
           </div>
       </div>
 
