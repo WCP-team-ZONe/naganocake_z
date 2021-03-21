@@ -8,8 +8,8 @@
 
 #ジャンル名
 2.times do |n|
-     Genre.create!(
-       name: "ケーキ#{n + 1}",
+    Genre.create!(
+      name: "ケーキ#{n + 1}",
   )
 end
 
