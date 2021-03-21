@@ -32,7 +32,7 @@
           <%= link_to "商品一覧", products_path, class: "btn btn-outline-secondary" %>
         </li>
         <li class="nav-name">
-          <%= link_to "カート", cart_product_path(current_member), class: "btn btn-outline-secondary" %>
+          <%= link_to "カート", cart_products_path(current_member), class: "btn btn-outline-secondary" %>
         </li>
         <li class="nav-name">
           <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-outline-secondary" %>

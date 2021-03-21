@@ -35,7 +35,7 @@
                 <span><%= cart_product.product.name %></span>
               </td>
               <td class="align-middle">
-                <%= (cart_product.product.ex_price * @tax).floor %>
+                <%= (cart_product.product.ex_price * @tax).floor.to_s(:delimited) %>
               </td>
               <td class="align-middle">
                 <%= form_with model:@cart_product, url: cart_product_path(cart_product.id), method: :patch, local:true do |f| %>
@@ -49,7 +49,7 @@
                 <% end %>
               </td>
               <td class="align-middle">
-                <%= (cart_product.product.ex_price * @tax * cart_product.quantity).floor %>
+                <%= (cart_product.product.ex_price * @tax * cart_product.quantity).floor.to_s(:delimited) %>
               </td>
               <td class="align-middle">
                 <%= link_to "削除する", cart_product_path(cart_product.id), method: :delete, data: { confirm: "本当にカートを空にしますか？" }, class:"btn btn-sm btn-danger" %>
@@ -69,7 +69,7 @@
           <tbody>
             <tr>
               <td class="align-middle bgc-gray">合計金額</td>
-              <td class="align-middle"><%= @sum %>円</td>
+              <td class="align-middle"><%= @sum.to_s(:delimited) %>円</td>
             </tr>
           </tbody>
         </table>
@@ -86,7 +86,6 @@
       <div class="link-to-top">
         <%= link_to "商品を見てみよう！", products_path, class:"btn btn-sm btn-primary bigger-btn" %>
       </div>
-
     <% end %>
   </div>
 </main>

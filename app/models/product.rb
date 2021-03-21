@@ -7,6 +7,7 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :ex_price, presence: true
   validates :is_active, presence: true
+  validates :is_active, inclusion: { in: [true, false] }
 
   attachment :image
 end

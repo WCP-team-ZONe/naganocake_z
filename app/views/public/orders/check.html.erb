@@ -1,2 +1,90 @@
-<h1>Public::Orders#check</h1>
-<p>Find me in app/views/public/orders/check.html.erb</p>
+<div class="container">
+  <h1 class="page-title bg-light">注文情報確認</h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="order-products-index col-md-8">
+        <table class="table table-bordered table-active">
+          <thead>
+            <tr>
+              <th width="50%">商品名</th>
+              <th width="20%">単価(税込)</th>
+              <th width="15%">数量</th>
+              <th width="15%">小計</th>
+            </tr>
+          </thead>
+
+        <% @cart_products.each do |cart_product|%>
+          <!--合計金額算出用の変数-->
+          <% sub_total = (cart_product.product.ex_price * @tax * cart_product.quantity).floor %>
+          <% @sum += sub_total %>
+          <tbody>
+            <tr>
+              <td class="align-middle white">
+                <span style="margin-right:20px"><%= attachment_image_tag cart_product.product, :image, :fill, 60, 60 %></span>
+                <span><%= cart_product.product.name %></span>
+              </td>
+              <td class="align-middle white">
+                <%= (cart_product.product.ex_price * @tax).floor.to_s(:delimited) %>
+              </td>
+              <td class="align-middle white">
+                <%= cart_product.quantity %>
+              </td>
+              <td class="align-middle white">
+                <%= (cart_product.product.ex_price * @tax * cart_product.quantity).floor.to_s(:delimited) %>
+              </td>
+            </tr>
+          </tbody>
+        <% end %>
+        </table>
+      </div>
+
+    <div class="col-md-3">
+      <table class="table table-bordered table-active reverse-table">
+        <thead width="50%">
+          <tr>
+            <th><span>　送料　</span></th>
+            <th><span>商品合計</span></th>
+            <th><span>請求金額</span></th>
+          </tr>
+        </thead>
+        <tbody width="50%">
+          <tr>
+            <td class="white"><span><%= @postage.to_s(:delimited) %></span></td>
+            <td class="white"><span><%= @sum.to_s(:delimited) %></span></td>
+            <td class="white"><span><%= (@postage + @sum).to_s(:delimited) %></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+
+
+
+  <div class="payment-area check-flex">
+    <h2 class="order-title">支払い方法</h2>
+    <% if @order.payment == "0" %>
+      <p>　　クレジットカード</p>
+    <% elsif @order.payment == "1" %>
+      <p>　　銀行振込</p>
+    <% end %>
+  </div>
+
+  <div class="address-area check-flex check-address">
+    <h2 class="address-title">お届け先　　</h2>
+    <p><%= @order.postal_code + "　-　" + @order.address + "　-　" + @order.name %></p>
+  </div>
+
+  <!--注文確定ボタン-->
+  <div class="order-create">
+    <%= form_with model:@saved_order, url:orders_path do |f| %>
+      <%= f.hidden_field :postal_code, value: @order.postal_code %>
+      <%= f.hidden_field :address, value: @order.address %>
+      <%= f.hidden_field :name, value: @order.name %>
+      <%= f.hidden_field :total_price, value: @postage + @sum %>
+      <%= f.hidden_field :payment, value: @order.payment %>
+      <p><%= f.submit "注文を確定する", class:"btn btn-sm btn-success biggest-btn" %></p>
+    <% end %>
+  </div>
+</div>
