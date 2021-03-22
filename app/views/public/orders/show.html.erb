@@ -22,13 +22,13 @@
               </span>
             </td>
 
-            <td id="text-align-left">
+            <td class="text-align-left">
               <span>
                 〒<%= @order.postal_code %>
                 <br>
-                <%= @order.address %>
+                <span>　</span><%= @order.address %>
                 <br>
-                <%= @order.name %>
+                <span>　</span><%= @order.name %>
               </span>
             </td>
 
@@ -97,12 +97,22 @@
       </thead>
 
       <tbody>
-        <tr>
-          <td><%= %></td>
-          <td><%= %></td>
-          <td><%= %></td>
-          <td><%= %></td>
-        </tr>
+        <% @ordered_products.each do |ordered_product|%>
+          <tr>
+            <td>
+              <%= ordered_product.product.name %>
+            </td>
+            <td>
+              <%= (ordered_product.product.ex_price * @tax).floor.to_s(:delimited) %>
+            </td>
+            <td>
+              <%= ordered_product.quantity %>
+            </td>
+            <td>
+              <%= (ordered_product.product.ex_price * @tax * ordered_product.quantity).floor.to_s(:delimited) %>
+            </td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

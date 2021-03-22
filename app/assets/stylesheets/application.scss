@@ -371,8 +371,17 @@ td > span, th > span{
   vertical-align: middle!important;
 }
 
-#text-align-left {
-  text-align: left;
+.text-align-left {
+  text-align: left!important;
+}
+
+.no-margin-bottom-p {
+  margin-bottom: 0;
+}
+
+.font-success {
+  font-weight: bold;
+  color: #28a745;;
 }
 
 // 注文履歴詳細
