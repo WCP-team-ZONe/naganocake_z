@@ -14,12 +14,6 @@
 end
 
 # デモ商品データ(9つ)
-2.times do |n|
-  Genre.create!(
-    name: "ケーキ#{n + 1}",
-    )
-end
-
 9.times do |n|
   Product.create!(
     genre_id: 1,
