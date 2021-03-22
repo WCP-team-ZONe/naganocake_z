@@ -41,7 +41,7 @@
 
         <div>
           <!--配送先idを送る必要がある-->
-          <%= f.collection_select :address_id, @addresses, :id, :full_shipping_address, {prompt: "選択してください"},{ {class:"select-having-address"} %>
+          <%= f.collection_select :address_id, @addresses, :id, :full_shipping_address, {prompt: "選択してください"}, {class:"select-having-address"} %>
         </div>
 
       </section>
