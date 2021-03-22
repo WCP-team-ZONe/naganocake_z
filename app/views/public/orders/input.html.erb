@@ -1,4 +1,16 @@
 <div class="container">
+  <div class="error-box">
+    <% if @order.errors.any? %>
+      <h3 class="red-message "><%= pluralize(@order.errors.count, "error") %>  prohibited this book from being saved:</h3>
+        <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li class="red-message"><%= message %></li>
+        <% end %>
+        </ul>
+    <% end %>
+  </div>
+
+
   <h1 class="page-title bg-light">注文情報入力</h1>
 
   <%= form_with(model: @order, url: orders_check_path, local: true) do |f| %>
@@ -40,8 +52,7 @@
         <label><%= f.radio_button :option, 1, class:"radio-button" %>登録済み住所から選択</label>
 
         <div>
-          <!--配送先idを送る必要がある-->
-          <%= f.collection_select :address_id, @addresses, :id, :full_shipping_address, {prompt: "選択してください"}, {class:"select-having-address"} %>
+          <%= f.collection_select :address_id, @addresses, :id, :full_shipping_address, {prompt: "--選択してください--"}, {class:"select-having-address"} %>
         </div>
 
       </section>

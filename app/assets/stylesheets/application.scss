@@ -15,9 +15,19 @@
  */
 
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Permanent+Marker&family=Yusei+Magic&display=swap');
 
 * {
   box-sizing: border-box;
+  font-family: 'Architects Daughter', cursive;
+  font-family: 'Permanent Marker', cursive;
+  font-family: 'Yusei Magic', sans-serif;
+  letter-spacing: 2px;
+}
+
+main {
+  background-color: rgba(255, 182, 193, 0.1);
+  padding-bottom: 50px;
 }
 
 .notice {
@@ -39,7 +49,7 @@
 
 .title-box {
   text-align: center;
-  margin: 40px 0;
+  padding: 40px 0;
 }
 
 .inline {
@@ -57,12 +67,12 @@
 }
 
 .field-password{
-    padding-left: 25%;
+  padding-left: 25%;
 }
 
 .field-email{
-    padding-left: 25%;
-    margin-bottom: 5px;
+  padding-left: 25%;
+  margin-bottom: 5px;
 }
 
 .inline {
@@ -83,8 +93,7 @@
  flex-basis :20%;
  margin: 10px;
  padding: 10px;
- border: 2px solid #ffb6c1;
- background-color: rgba(255, 192, 203, 0.3);
+ background-color: rgba(255, 160, 122, 0.2);
  text-align: center;
 }
 
@@ -100,15 +109,17 @@
 }
 
 .paginate {
-  padding: 20px 0;
+  padding-top: 50px;
 }
 
 .pagination {
   justify-content: center;
 }
 
+// kaminari大きさ調整
 .pagination > span {
-  padding: 5px 10px;
+  padding: 12px 24px;
+  font-size: 1.3rem;
   margin: 0 10px;
   border: 1px solid #f5f5f5;
   background-color: #f5f5f5;
@@ -172,7 +183,8 @@ table {
 
 .between-flex-lg {
   width: 80%;
-  margin: 30px auto;
+  margin: 0 auto;
+  padding: 30px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -198,14 +210,14 @@ table {
 .biggest-btn {
   padding: 0.7rem 3rem;
   font-weight: bold;
-  letter-spacing: 2px;
 }
 
 .empty-message {
   width: 70%;
   font-size: 2rem;
   color: #d3d3d3;
-  margin: 50px auto;
+  margin: 0 auto;
+  padding: 180px 0;
   text-align: center;
 }
 
@@ -309,7 +321,6 @@ table {
 .complete-message {
   font-size: 1.7rem;
   line-height: 300px;
-  letter-spacing: 2px;
 }
 
 
@@ -389,7 +400,6 @@ td > span, th > span{
 
 // フッター
 footer {
-  margin-top: 50px;
   background: #f5f5f5;
   text-align: center;
 }
@@ -399,7 +409,6 @@ footer > p {
   margin-bottom: 0;
   opacity: 0.5;
 }
-
 
 // エラーメッセージ
 .error-text {
@@ -437,7 +446,6 @@ h4 {
 
 .next-btn {
   margin: 0 0 0 auto;
-
   text-align:right;
   display:block;
 }
