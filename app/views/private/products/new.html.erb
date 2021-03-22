@@ -1,5 +1,6 @@
 <div class="product-new">
     <div class="container">
+
         <div class="private-product-title">
             <div class="row">
                 <div class="col-xs-6 col-xs-offset-0">
@@ -7,6 +8,17 @@
                 </div>
             </div>
         </div>
+
+      <div class="error-text">
+      	<% if @product.errors.any? %>
+      		<h2><%= @product.errors.count %>errors prohibited this book from being saved:</h2>
+      			<ul>
+      			<% @product.errors.full_messages.each do |message| %>
+      				<li><%= message %></li>
+      			<% end %>
+      			</ul>
+      	<% end %>
+      </div>
 
         <%= form_with model:@product,url:private_products_path, local: true do |f| %>
             <div class="row">
@@ -18,7 +30,8 @@
                                 商品画像
                             </td>
                             <td>
-                                <%= attachment_image_tag @product, :image,format: "jpg", fallback: "no_image.jpg", size:"50x50" %>
+                                <%= attachment_image_tag @product, :image, fallback: "no_image.jpg", size:"50x50" %>
+                                <!--< %= attachment_image_tag @product, :image,format: "jpg", fallback: "no_image.jpg", size:"50x50" %>-->
                                 <%= f.attachment_field :image, placeholder:"商品画像" %>
                             </td>
                         </tr>
@@ -50,7 +63,7 @@
                                 <%= f.label :genre_id, "ジャンル" %>
                             </td>
                             <td>
-                                <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "-- 選択してください --", class: 'form-control' %>
+                                <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "-- 選択してください --", class: "form-control" %>
                             </td>
                         </tr>
                     </div>
@@ -70,25 +83,17 @@
                                 <%= f.label :is_active, "販売ステータス" %>
                             </td>
                             <td>
-
                                 <%= f.radio_button :is_active, true %>
-                                <%= f.label :is_active, "販売中", value: :true %>
-                                
+                                <%= f.label :is_active, "販売中", {value: :true} %>
                                 <%= f.radio_button :is_active, false, class: "ml-3" %>
-                                <%= f.label :is_active, "販売停止中", value: :false %>
-
-
-                                <!--< %= f.select :is_active, {"販売中":"1", "販売停止中":"0"} %>-->
-                                <!--販売中< %= f.radio_button :is_active, "販売中":"1", checked: true %>&nbsp;-->
-                                <!--<span>販売停止中< %= f.radio_button :is_active, "販売停止中":"2", checked: false %></span>-->
-                                <!--< %= f.select :is_active, {"販売中":"true", "販売停止中":"false"} %>-->
+                                <%= f.label :is_active, "販売停止中", {value: :false} %>
                             </td>
                         </tr>
                     </div>
 
                     <div class="submit-btn">
-                    <!--<div class="col-xs-4 col-xs-offset-8">-->
                         <tr>
+                          <td></td>
                             <td>
                                 <%= f.submit "新規登録" , class: "btn btn-primary"  %>
                             </td>

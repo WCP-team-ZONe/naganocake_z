@@ -19,61 +19,65 @@
 
 
       <!--会員ログイン時-->
-    <div class="header">
-      <ul class="nav navbar-nav navbar-right wf-mplus1p">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <ul class="navbar-nav ml-auto">
       <% if member_signed_in? %>
-        <li class="nav-name">
+        <li class="nav-item">
           ようこそ、<%= current_member.family_name %>さん!
         </li>
-        <li class="nav-name">
+        <li class="nav-item">
           <%= link_to "マイページ", member_path(current_member), class: "btn btn-outline-secondary" %>
         </li>
-        <li class="nav-name">
+        <li class="nav-item">
           <%= link_to "商品一覧", products_path, class: "btn btn-outline-secondary" %>
         </li>
-        <li class="nav-name">
+        <li class="nav-item">
           <%= link_to "カート", cart_products_path(current_member), class: "btn btn-outline-secondary" %>
         </li>
-        <li class="nav-name">
+        <li class="nav-item">
           <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-outline-secondary" %>
         </li>
 
       <!--管理者ログイン時-->
       <% elsif admin_signed_in? %>
-        <li class="nav-name">
+        <li class="nav-item">
           <%= link_to "商品一覧", private_products_path, class: "btn btn-outline-secondary" %>
-        </li class="nav-name">
-        <li class="nav-name">
+        </li>
+        <li class="nav-item">
           <%= link_to "会員一覧", private_members_path, class: "btn btn-outline-secondary" %>
         </li>
-        <li class="nav-name">
+        <li class="nav-item">
           <%= link_to "注文履歴一覧", private_orders_path, class: "btn btn-outline-secondary" %>
         </li>
-        <li class="nav-name">
+        <li class="nav-item">
           <%= link_to "ジャンル一覧", private_genres_path, class: "btn btn-outline-secondary" %>
         </li>
-        <li class="nav-name">
+        <li class="nav-item">
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary" %>
         </li>
-        <%= render "layouts/search" %>
+        <li>
 
       <% else %>
 
         <!--ログインしていない時-->
-        <li class="nav-name-logout">
+        <li class="nav-item">
           <%= link_to "About", products_about_path, class: "btn btn-outline-secondary " %>
         </li>
-        <li class="nav-name-logout">
+        <li class="nav-item">
           <%= link_to "商品一覧", products_path, class: "btn btn-outline-secondary" %>
         </li>
-        <li class="nav-name-logout">
+        <li class="nav-item">
           <%= link_to "新規登録", new_member_registration_path, class: "btn btn-outline-secondary" %>
         </li>
-        <li class="nav-name-logout">
+        <li class="nav-item">
           <%= link_to "ログイン", new_member_session_path, class: "btn btn-outline-secondary" %>
         </li>
       <% end %>
       </ul>
+
     </div>
   </nav>
 </header>

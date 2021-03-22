@@ -42,10 +42,11 @@
                                 <%= link_to product.name, private_product_path(product.id)%>
                             </td>
                             <td>
-                                <%= number_with_delimiter(product.ex_price) %>
+                                ¥<%= (product.ex_price * @tax).floor.to_s(:delimited) %>
+                                <!--<#%= number_with_delimiter(product.ex_price) %>-->
                             </td>
                             <td>
-                                <%= product.genre_id %>
+                                <%= product.genre.name %>
                             </td>
                             <td class="text-right">
                                 <% if product.is_active == true %>

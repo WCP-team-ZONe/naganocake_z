@@ -29,20 +29,12 @@
   font-weigth: bold;
 }
 
-.nav-name{
-  padding:30px;
+.nav-item {
+  padding: 20px 10px;
 }
 
-.search{
-  padding-left:600px;
-}
-
-.Nagano-CAKE-image{
-  padding-right:300px;
-}
-
-.nav-name-logout{
-  padding-left:120px;
+.Nagano-CAKE-image {
+  padding-right: 300px;
 }
 
 .title-box {
@@ -56,21 +48,21 @@
 
 .login-title{
     background-color:#EEEEEE;
-    padding:0 15px;
+    padding: 0 15px;
 }
 
 .field-email{
-    padding-left:25%;
-    margin-bottom:5px;
+    padding-left: 25%;
+    margin-bottom: 5px;
 }
 
 .field-password{
-    padding-left:25%;
+    padding-left: 25%;
 }
 
 .field-email{
-    padding-left:25%;
-    margin-bottom:5px;
+    padding-left: 25%;
+    margin-bottom: 5px;
 }
 
 .inline {
@@ -89,7 +81,11 @@
 
 .product-box {
  flex-basis :20%;
- margin: 20px;
+ margin: 10px;
+ padding: 10px;
+ border: 2px solid #ffb6c1;
+ background-color: rgba(255, 192, 203, 0.3);
+ text-align: center;
 }
 
 .product-box > p {
@@ -330,9 +326,12 @@ td > span, th > span{
   white-space : nowrap;
 }
 
-.white {
+.reverse-table td, th {
   text-align:center;
-  background-color:white!important;
+}
+
+.reverse-table thead, th {
+  vertical-align: middle!important;
 }
 
 .order-products-index {
@@ -358,8 +357,38 @@ td > span, th > span{
   text-align: center;
 }
 
-// フッター
+// 注文一覧
 
+.vertical {
+  vertical-align: middle!important;
+}
+
+.text-align-left {
+  text-align: left!important;
+}
+
+.no-margin-bottom-p {
+  margin-bottom: 0;
+}
+
+.font-success {
+  font-weight: bold;
+  color: #28a745;;
+}
+
+// 注文履歴詳細
+ .order-show-title {
+   font-size: 1.2rem;
+   font-weight: bold;
+   padding: 15px 0;
+ }
+
+ .oreder-products {
+   margin-top: 50px;
+ }
+
+
+// フッター
 footer {
   margin-top: 50px;
   background: #f5f5f5;
@@ -370,4 +399,45 @@ footer > p {
   padding: 30px 0;
   margin-bottom: 0;
   opacity: 0.5;
+}
+
+
+// エラーメッセージ
+.error-text {
+  color:red;
+}
+
+// トップページ
+.main-visual {
+  margin: 50px auto 0;
+  background-position: center;
+  background-size: contine;
+  background-image:url("nagano-botti.jpg");
+  width: 600px;
+  height: 400px;
+}
+
+.text-box {
+  color:#ffffff;
+  wdth: 600px;
+  height: 400px;
+  text-align:center;
+  padding-top: 150px;
+}
+
+h4 {
+  margin:50px 0;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.next-btn {
+  margin: 0 0 0 auto;
+
+  text-align:right;
+  display:block;
 }

@@ -1,2 +1,119 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="container">
+  <h1 class="page-title bg-light">注文履歴詳細</h1>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h2 class="order-show-title">注文情報</h2>
+      <table class="table table-bordered reverse-table">
+        <thead class="thead-light">
+          <tr>
+            <th><span>注文日</span></th>
+            <th><span>配送先</span></th>
+            <th><span>支払方法</span></th>
+            <th><span>ステータス</span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>
+              <span>
+                <%= @order.created_at.strftime('%Y/%m/%d') %>
+              </span>
+            </td>
+
+            <td class="text-align-left">
+              <span>
+                〒<%= @order.postal_code %>
+                <br>
+                <span>　</span><%= @order.address %>
+                <br>
+                <span>　</span><%= @order.name %>
+              </span>
+            </td>
+
+            <td>
+              <span>
+                <% if @order.payment == "0" %>
+                  クレジットカード
+                <% elsif @order.payment == "1" %>
+                  銀行振り込み
+                <% else %>
+                <% end %>
+              </span>
+            </td>
+
+            <td>
+              <span>
+                <% if @order.order_status == 0 %>
+                  入金待ち
+                <% elsif @order.order_status == 1 %>
+                  入金確認
+                <% elsif @order.order_status == 2 %>
+                  制作中
+                <% elsif @order.order_status == 3 %>
+                  発送準備中
+                <% else %>
+                  発送済
+                <% end %>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <h2 class="order-show-title">請求情報</h2>
+      <table class="table table-bordered reverse-table">
+        <thead class="thead-light">
+          <tr>
+            <th><span>商品合計金額</span></th>
+            <th><span>配送料<span></th>
+            <th><span><strong>ご請求金額</strong></span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><span><%= (@order.total_price - @postage).to_s(:delimited) %> 円</span></td>
+            <td><span><%= @order.postage %>円</span></td>
+            <td><span><strong><%= @order.total_price.to_s(:delimited) %>円<strong></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="oreder-products">
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th width="45%">商品</th>
+          <th width="25%">単価(税込)</th>
+          <th width="15%">個数</th>
+          <th width="15%">小計</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @ordered_products.each do |ordered_product|%>
+          <tr>
+            <td>
+              <%= ordered_product.product.name %>
+            </td>
+            <td>
+              <%= (ordered_product.product.ex_price * @tax).floor.to_s(:delimited) %>
+            </td>
+            <td>
+              <%= ordered_product.quantity %>
+            </td>
+            <td>
+              <%= (ordered_product.product.ex_price * @tax * ordered_product.quantity).floor.to_s(:delimited) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
