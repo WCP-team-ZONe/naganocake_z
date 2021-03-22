@@ -13,8 +13,8 @@
       </div>
 
       <div class="cart-products-index">
-        <table class="table table-bordered table-active">
-          <thead>
+        <table class="table table-bordered">
+          <thead class="thead-light">
             <tr>
               <th width="32%">商品名</th>
               <th width="18%">単価(税込)</th>
@@ -41,7 +41,7 @@
                 <%= form_with model:@cart_product, url: cart_product_path(cart_product.id), method: :patch, local:true do |f| %>
                 <%= f.hidden_field :product_id, value: cart_product.product_id %>
                   <%= f.select :quantity,
-                    {"1":1, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10},
+                    {"1":1, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10, "11":11, "12":12, "13":13, "14":14, "15":15},
                     { include_blank: true, selected: cart_product.quantity },
                     class:"change-quantity"
                   %>
@@ -81,10 +81,10 @@
 
 
     <% else %>
-      <p class="empty-message">カートに商品はありません。<p>
+      <p class="empty-message">まだカートに商品はありません!<p>
 
       <div class="link-to-top">
-        <%= link_to "商品を見てみよう！", products_path, class:"btn btn-sm btn-primary bigger-btn" %>
+        <%= link_to "商品を見てみよう！", products_path, class:"btn btn-sm btn-primary biggest-btn" %>
       </div>
     <% end %>
   </div>

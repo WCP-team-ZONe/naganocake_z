@@ -11,6 +11,7 @@ class Public::OrdersController < ApplicationController
 
   def check
     @order = Order.new(order_params)
+    @order.postage = @postage
     @sum = 0
     @cart_products = CartProduct.where(member_id: current_member.id)
 
@@ -18,18 +19,21 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = @my_postal_code
       @order.address = @my_address
       @order.name = @my_name
+    elsif params[:order][:option] == "1" and params[:order][:address_id].empty?
+        redirect_to orders_input_path
+        flash[:notice] = "配送先が選択されていません！"
     elsif params[:order][:option] == "1"
-      # if params[:order][:address_id].none?
-      #   render "check"
-      # end
       shipping_address = Address.find(params[:order][:address_id])
       @order.postal_code = shipping_address.postal_code
       @order.address = shipping_address.address
       @order.name = shipping_address.name
     elsif params[:order][:option] == "2"
-    end
 
-    @order.postage = @postage
+      if params[:order][:postal_code].empty? or params[:order][:address].empty? or params[:order][:name].empty?
+        redirect_to orders_input_path
+        flash[:notice] = "未入力の項目があった為、ページを更新しました！"
+      end
+    end
   end
 
   def create
