@@ -13,8 +13,8 @@
       </div>
 
       <div class="cart-products-index">
-        <table class="table table-bordered table-active">
-          <thead>
+        <table class="table table-bordered">
+          <thead class="thead-light">
             <tr>
               <th width="32%">商品名</th>
               <th width="18%">単価(税込)</th>
@@ -81,10 +81,10 @@
 
 
     <% else %>
-      <p class="empty-message">カートに商品はありません。<p>
+      <p class="empty-message">まだカートに商品はありません!<p>
 
       <div class="link-to-top">
-        <%= link_to "商品を見てみよう！", products_path, class:"btn btn-sm btn-primary bigger-btn" %>
+        <%= link_to "商品を見てみよう！", products_path, class:"btn btn-sm btn-primary biggest-btn" %>
       </div>
     <% end %>
   </div>
