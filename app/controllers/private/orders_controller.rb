@@ -14,7 +14,7 @@ class Private::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     if @order.update(order_params)
       flash[:notice] = "注文ステータスを更新しました"
-      redirect_to private_orders_path(@order)
+      redirect_to private_order_path(@order)
     else
       render show
     end
@@ -23,6 +23,8 @@ class Private::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).premit(:order_status)
+    params.require(:order).permit(:order_status)
   end
+
+
 end

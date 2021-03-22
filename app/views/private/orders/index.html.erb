@@ -17,15 +17,15 @@
             <% @orders.each do |order| %>
               <tr>
                 <td class="p-2 border-bottom">
-                  <%= link_to private_orders_path(order) do %>
-                    <%= order.created_at %>
+                  <%= link_to private_order_path(order) do %>
+                    <%= order.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
                   <% end %>
                 </td>
                 <td class="p-2 border-bottom">
-                  <%= family_name(order.member) %><%= first_name(order.member) %>
+                  <%= order.member.family_name %><%= order.member.first_name %>
                 </td>
                 <td class="p-2 border-bottom">
-                  <%= order.order_products.count %>
+                  <%= order.ordered_products.count %>
                 </td>
                 <td class="p-2 border-bottom">
                   <%= order.order_status %>
