@@ -414,3 +414,38 @@ footer > p {
 .error-text {
   color:red;
 }
+
+
+// トップページ
+.main-visual {
+  margin: 50px auto 0;
+  background-position: center;
+  background-size: contine;
+  background-image:url("nagano-botti.jpg");
+  width: 600px;
+  height: 400px;
+}
+
+.text-box {
+  color:#ffffff;
+  wdth: 600px;
+  height: 400px;
+  text-align:center;
+  padding-top: 150px;
+}
+
+h4 {
+  margin:50px 0;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.next-btn {
+  margin: 0 0 0 auto;
+  text-align:right;
+  display:block;
+}

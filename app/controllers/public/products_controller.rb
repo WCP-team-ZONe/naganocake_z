@@ -2,6 +2,7 @@ class Public::ProductsController < ApplicationController
   before_action :set_tax
 
   def top
+    @product = Product.all.order("created_at DESC").limit(4)
   end
 
   def about

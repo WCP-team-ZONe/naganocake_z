@@ -17,7 +17,6 @@ end
 # デモ商品データ(9つ)
 9.times do |n|
   Product.create!(
-    genre_id: 1,
     name: "demo商品#{n + 1}",
     description: "説明文説明文説明文#{n + 1}",
     ex_price: "100#{n + 1}",
