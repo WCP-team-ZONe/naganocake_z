@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  belongs_to :members
+  belongs_to :member
   has_many :ordered_products, dependent: :destroy
 
   validates :postage, presence: true

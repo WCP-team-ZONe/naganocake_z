@@ -12,7 +12,7 @@ class Private::GenresController < ApplicationController
       flash[:notice] = "ジャンルの新規登録が完了しました。"
       redirect_to private_genres_path
     else
-      @genre = Genre.all
+      @genres = Genre.all
       render "index"
     end
   end

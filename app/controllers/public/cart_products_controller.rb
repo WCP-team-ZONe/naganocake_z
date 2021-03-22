@@ -3,8 +3,8 @@ class Public::CartProductsController < ApplicationController
   before_action :set_tax
 
   def index
-    @cart_products = CartProduct.all
     @sum = 0
+    @cart_products = CartProduct.all
   end
 
   def update
@@ -44,6 +44,7 @@ class Public::CartProductsController < ApplicationController
     end
     # product_idが一致しなかったときの処理
     @add_product.save
+    flash[:notice] = "カートに商品を追加しました！"
     redirect_to cart_products_path
   end
 

@@ -4,11 +4,11 @@
   <div class="container">
     <div class="row">
       <div class="order-products-index col-md-8">
-        <table class="table table-bordered table-active">
-          <thead>
+        <table class="table table-bordered ">
+          <thead class="thead-light">
             <tr>
-              <th width="50%">商品名</th>
-              <th width="20%">単価(税込)</th>
+              <th width="55%">商品名</th>
+              <th width="25%">単価(税込)</th>
               <th width="15%">数量</th>
               <th width="15%">小計</th>
             </tr>
@@ -73,17 +73,27 @@
 
   <div class="address-area check-flex check-address">
     <h2 class="address-title">お届け先　　</h2>
-    <p><%= @order.postal_code + "　-　" + @order.address + "　-　" + @order.name %></p>
+    <p>
+      <%= @order.postal_code %>
+      <%= @order.address %>
+      <%= @order.name %>
+    </p>
   </div>
 
   <!--注文確定ボタン-->
   <div class="order-create">
-    <%= form_with model:@saved_order, url:orders_path do |f| %>
+    <%= form_with model:@order, url:orders_path do |f| %>
       <%= f.hidden_field :postal_code, value: @order.postal_code %>
       <%= f.hidden_field :address, value: @order.address %>
       <%= f.hidden_field :name, value: @order.name %>
       <%= f.hidden_field :total_price, value: @postage + @sum %>
       <%= f.hidden_field :payment, value: @order.payment %>
+
+      <%= fields_for(@address) do |ad| %>
+        <%= ad.hidden_field :postal_code, value: @order.postal_code %>
+        <%= ad.hidden_field :address, value: @order.address %>
+        <%= ad.hidden_field :name, value: @order.name %>
+      <% end %>
       <p><%= f.submit "注文を確定する", class:"btn btn-sm btn-success biggest-btn" %></p>
     <% end %>
   </div>
