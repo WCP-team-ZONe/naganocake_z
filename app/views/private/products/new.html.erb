@@ -30,7 +30,8 @@
                                 商品画像
                             </td>
                             <td>
-                                <%= attachment_image_tag @product, :image,format: "jpg", fallback: "no_image.jpg", size:"50x50" %>
+                                <%= attachment_image_tag @product, :image, fallback: "no_image.jpg", size:"50x50" %>
+                                <!--< %= attachment_image_tag @product, :image,format: "jpg", fallback: "no_image.jpg", size:"50x50" %>-->
                                 <%= f.attachment_field :image, placeholder:"商品画像" %>
                             </td>
                         </tr>
