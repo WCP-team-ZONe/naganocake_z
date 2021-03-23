@@ -2,12 +2,18 @@ class Private::OrderedProductsController < ApplicationController
 
   def update
       @ordered_product = OrderedProduct.find(params[:id])
-    if @ordered_product.update(ordered_product_params)
-    flash[:notice] = "注文ステータスを更新しました"
+      @order = @ordered_product.order
+      @ordered_product.update(ordered_product_params)
+
+      if @ordered_product.production_status == "製作中"
+          @order.update(order_status: 2)
+
+      elsif @order.ordered_products.count == @order.ordered_products.where(production_status: 3).count
+          @order.update(order_status: 3)
+      end
+
+    flash[:notice] = "製作ステータスを更新しました"
     redirect_to private_order_path(@ordered_product.order)
-    else
-    render show
-    end
   end
 
   private

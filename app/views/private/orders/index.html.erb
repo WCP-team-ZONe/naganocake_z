@@ -25,7 +25,7 @@
                   <%= order.member.family_name %><%= order.member.first_name %>
                 </td>
                 <td class="p-2 border-bottom">
-                  <%= order.ordered_products.count %>
+                  <%= order.ordered_products.sum(:quantity) %>
                 </td>
                 <td class="p-2 border-bottom">
                   <%= order.order_status %>

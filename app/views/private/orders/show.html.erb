@@ -47,7 +47,7 @@
           </div>
             <div class="field col-10 ">
             <%= form_with model: @order, url: private_order_path, local: true, method: :patch  do |f|  %>
-              <%= f.select :order_status, ["入金待ち","入金確認","製作中","発送準備中","発送済み"], class: "" %>
+              <%= f.select :order_status,Order.order_statuses.keys,include_order_status: "入金待ち" %>
               <%= f.submit "更新", class: "btn btn-success" %>
           </div>
 
@@ -79,7 +79,7 @@
                   <td><%= (ordered_product.purchased_price)*(ordered_product.quantity) %></td>
                 <%= form_with model: ordered_product, url: private_ordered_product_path(ordered_product), local: true, method: :patch do |f|  %>
                   <td>
-                    <%= f.select :production_status,["着手不可","制作待ち","製作中","制作完了"] %>
+                    <%= f.select :production_status, OrderedProduct.production_statuses.keys,include_production_status: "着手不可" %>
                     <%= f.submit "更新", class: "btn btn-success" %>
                   </td>
                 <% end %>
