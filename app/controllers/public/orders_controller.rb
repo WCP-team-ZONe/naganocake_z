@@ -19,6 +19,7 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = @my_postal_code
       @order.address = @my_address
       @order.name = @my_name
+      @option = "0"
     elsif params[:order][:option] == "1" and params[:order][:address_id].empty?
         redirect_to orders_input_path
         flash[:notice] = "配送先が選択されていません！"
@@ -27,44 +28,44 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = shipping_address.postal_code
       @order.address = shipping_address.address
       @order.name = shipping_address.name
+      @option = "1"
     elsif params[:order][:option] == "2"
-
       if params[:order][:postal_code].empty? or params[:order][:address].empty? or params[:order][:name].empty?
         redirect_to orders_input_path
         flash[:notice] = "未入力の項目があった為、ページを更新しました！"
       end
+      @option = "2"
     end
   end
 
   def create
-    # ordersテーブルに保存するアクション
-    @order = Order.new(new_order_params)
+    # 注文情報を保存
+    @order = Order.new(order_params)
     @order.member_id = current_member.id
     @order.postage = @postage
     @order.save
 
     # 配送先を保存するアクション
-    @address = Address.new(address_params)
-    @address.member_id = current_member.id
-    @address.save
+    # バグ修正②
+    if params[:option] == "2"
+      @address = Address.new(address_params)
+      @address.member_id = current_member.id
+      @address.save
+    end
 
-    # ordered_productsテーブルに保存するアクション
+    # 注文商品を保存
     @cart_products = CartProduct.where(member_id: current_member.id)
       @cart_products.each do |cart_product|
-        # 注文商品テーブルに保存する空箱を作る
         @ordered_product = @order.ordered_products.new
-        # カート商品が持つ注文idを代入
         @ordered_product.order_id = @order.id
-        # カート商品が持つ商品idを代入
         @ordered_product.product_id = cart_product.product_id
-        # カート商品が持つ商品個数を代入
         @ordered_product.quantity = cart_product.quantity
-        # カート商品が持つ税抜価格を代入
         @ordered_product.purchased_price = cart_product.product.ex_price
-        # 注文商品テーブルに保存
         @ordered_product.save
       end
-    # カート内データ全消去
+
+    byebug
+    # カート内全消去
     @cart_products.destroy_all
     redirect_to orders_complete_path
   end
@@ -90,10 +91,6 @@ class Public::OrdersController < ApplicationController
 # ストロングパラメータ
   private
   def order_params
-    params.require(:order).permit(:payment, :postal_code, :address, :name, :total_price)
-  end
-
-  def new_order_params
     params.require(:order).permit(:payment, :postal_code, :address, :name, :total_price)
   end
 
