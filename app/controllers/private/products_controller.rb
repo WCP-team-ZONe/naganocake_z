@@ -1,5 +1,5 @@
 class Private::ProductsController < ApplicationController
-  # before_action :authenticate_admin_user!
+   before_action :authenticate_admin!
   before_action :set_tax
 
   def index

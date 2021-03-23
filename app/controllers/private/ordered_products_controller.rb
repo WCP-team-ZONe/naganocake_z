@@ -1,5 +1,5 @@
 class Private::OrderedProductsController < ApplicationController
-
+   before_action :authenticate_admin!
   def update
       @ordered_product = OrderedProduct.find(params[:id])
       @order = @ordered_product.order

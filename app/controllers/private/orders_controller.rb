@@ -1,5 +1,5 @@
 class Private::OrdersController < ApplicationController
-   # before_action :authenticate_admin_user!
+   before_action :authenticate_admin!
 
   def index
     @orders = Order.all.page(params[:page]).per(10)
