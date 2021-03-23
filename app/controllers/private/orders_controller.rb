@@ -1,5 +1,5 @@
 class Private::OrdersController < ApplicationController
-   # before_action :authenticate_admin_user!
+   before_action :authenticate_admin!
 
   def index
     @orders = Order.all.page(params[:page]).per(10)
@@ -12,12 +12,13 @@ class Private::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    if @order.update(order_params)
+    @order.update(order_params)
+    if @order.order_status == "入金確認"
+        @order.ordered_products.update(production_status: 1) #製作ステータスを"製作待ち"にかえる
+
+    end
       flash[:notice] = "注文ステータスを更新しました"
       redirect_to private_order_path(@order)
-    else
-      render show
-    end
   end
 
   private
