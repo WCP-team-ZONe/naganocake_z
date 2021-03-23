@@ -45,17 +45,8 @@
 
             <td>
               <span>
-                <% if @order.order_status == 0 %>
-                  入金待ち
-                <% elsif @order.order_status == 1 %>
-                  入金確認
-                <% elsif @order.order_status == 2 %>
-                  制作中
-                <% elsif @order.order_status == 3 %>
-                  発送準備中
-                <% else %>
-                  発送済
-                <% end %>
+                <!-- バグ修正①-->
+                <%= @order.order_status %>
               </span>
             </td>
           </tr>
