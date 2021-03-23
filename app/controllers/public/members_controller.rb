@@ -1,7 +1,7 @@
 class Public::MembersController < ApplicationController
-  
+
   before_action :authenticate_member!#ログインユーザのみ実行
-  
+
   def out
     @member = current_member
     @member.update(is_deleted: true )

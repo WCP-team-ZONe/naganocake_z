@@ -23,7 +23,11 @@ class ApplicationController < ActionController::Base
 
       #サインアウト後の遷移
   def after_sign_out_path_for(resource)
+    if resource == :admin
+    admin_session_path
+    else
     root_path
+    end
   end
 
   def configure_permitted_parameters
