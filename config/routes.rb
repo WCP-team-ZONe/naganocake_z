@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     resources :products
     resources :members, only: [:index,:show,:edit,:update]
     resources :orders, only: [:index,:show,:update]
+    resources :ordered_products, only:[:update]
     resources :genres, only: [:index,:create,:edit,:update]
   end
 end
