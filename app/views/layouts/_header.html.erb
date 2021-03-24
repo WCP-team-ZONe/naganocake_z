@@ -58,10 +58,16 @@
         <li class="nav-item">
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary" %>
         </li>
-        <li>
+
+       <!--検索フォーム（表示だけ）-->
+
+        <div class="search-form-box">
+          <div class="search-form">
+          <%= render "layouts/search" %>
+          </div>
+        </div>
 
       <% else %>
-
         <!--ログインしていない時-->
         <li class="nav-item">
           <%= link_to "About", products_about_path, class: "btn btn-outline-secondary " %>
