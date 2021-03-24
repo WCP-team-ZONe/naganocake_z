@@ -1,28 +1,32 @@
-<div class="row">
-  <div class="col-md-11 offset-md-1">
-    <div class="col-md-2 offset-md-3 my-5">
-      <h3 class="bg-light text-center">配送先編集</h3>
-    </div>
+<main>
+  <div class="row">
+    <div class="col-md-11 offset-md-1">
+      <div class="col-md-2 offset-md-3 my-5">
+        <h3 class="bg-white text-center">配送先編集</h3>
+      </div>
 
-    <%= form_with model: @address, local: true do |f| %>
-    <div class="col-md-10">
-      <%= f.label :"郵便番号(ハイフンなし)",class: "col-sm-3" %>
-      <%= f.text_field :postal_code ,class: "col-sm-3" %>
-    </div>
+      <div class="edit-address">
+        <%= form_with model: @address, local: true do |f| %>
+        <div class="col-md-10 mb-3">
+          <%= f.label :"郵便番号(ハイフンなし)",class: "col-sm-3" %>
+          <%= f.text_field :postal_code ,class: "col-sm-3" %>
+        </div>
 
-    <div class="col-md-10">
-      <%= f.label :"住所" ,class: "col-sm-3" %>
-      <%= f.text_field :address ,class: "col-sm-6" %>
-    </div>
+        <div class="col-md-10 mb-3">
+          <%= f.label :"住所" ,class: "col-sm-3" %>
+          <%= f.text_field :address ,class: "col-sm-8" %>
+        </div>
 
-    <div class="col-md-10">
-      <%= f.label :"宛名" ,class: "col-md-3" %>
-      <%= f.text_field :name ,class: "col-sm-3" %>
-    </div>
+        <div class="col-md-10 mb-3">
+          <%= f.label :"宛名" ,class: "col-md-3" %>
+          <%= f.text_field :name ,class: "col-sm-3" %>
+        </div>
 
-    <div class="col-md-10 mt-3">
-      <%= f.submit '変更内容を保存' ,class: "col-sm-3 offset-sm-3  btn-success text-white" %>
+        <div class="col-md-10 mt-3">
+          <%= f.submit '変更内容を保存' ,class: "col-sm-3 offset-sm-3  btn-success text-white sircle-btn mt-3 p-2" %>
+        </div>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
-</div>
+</main>
