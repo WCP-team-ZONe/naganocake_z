@@ -26,11 +26,12 @@
 
         <% @cart_products.each do |cart_product|%>
           <!--合計金額算出用の変数-->
-          <% sub_total = (cart_product.product.ex_price * @tax * cart_product.quantity).floor %>
-          <% @sum += sub_total %>
+          <% sub_total = (cart_product.product.ex_price * @tax).floor %>
+          <% sub_total1 = sub_total * cart_product.quantity %>
+          <% @sum += sub_total1 %>
           <tbody>
             <tr>
-              <td class="align-middle">
+              <td class="align-middle text-left">
                 <span style="margin-right:20px"><%= attachment_image_tag cart_product.product, :image, :fill, 60, 60 %></span>
                 <span><%= cart_product.product.name %></span>
               </td>
