@@ -1,41 +1,43 @@
-<div class="container">
-  <div class="row">
-    <div class="main-visual" >
-      <div class="text-box">
-        <h5>
-          ようこそ、ながのCAKEへ！<br>
-          このサイトは、ケーキ販売のECサイトになります。<br>
-          会員でない方も商品の閲覧ができますが、<br>
-          購入には会員登録が必要になります。
-        </h5>
-      </div>
-   </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <h4><strong>新着商品</strong></h4>
-    </div>
-  </div>
-   <div class="row">
-    <div class="col">
-      <div class="flex">
-      <% @product.each do |product| %>
-        <div>
-          <%= link_to product_path(product.id) do%>
-            <%= attachment_image_tag product, :image, fallback: "no_image.jpg", size:"200x150" %><br>
-            <%= product.name %><br>
-            <p>¥<%= (product.ex_price * @tax).floor.to_s(:delimited) %></p>
-          <% end %>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="main-visual" >
+        <div class="text-box">
+          <h5>
+            ようこそ、ながのCAKEへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧ができますが、<br>
+            購入には会員登録が必要になります。
+          </h5>
         </div>
-      <% end %>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h4><strong>新着商品</strong></h4>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col">
+        <div class="flex">
+        <% @product.each do |product| %>
+          <div class="product-box">
+            <%= link_to product_path(product.id) do%>
+              <%= attachment_image_tag product, :image, fallback: "no_image.jpg", size:"200x150" %><br>
+              <p class="text-center pt-3 mb-0"><%= product.name %></p>
+              <p class="text-center p-3 mb-0">¥<%= (product.ex_price * @tax).floor.to_s(:delimited) %></p>
+            <% end %>
+          </div>
+        <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="next-btn-box">
-  <div class="next-btn">
-   <%= link_to "全ての商品を見る＞", products_path, class: "fas fa-gifts nav-link text-teal m-3"  %>
+  <div class="next-btn-box">
+    <div class="next-btn">
+     <%= link_to "全ての商品を見る＞", products_path, class: "fas fa-gifts nav-link text-teal m-3"  %>
+    </div>
   </div>
-</div>
+</main>
