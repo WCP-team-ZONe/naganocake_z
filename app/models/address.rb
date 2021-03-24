@@ -3,6 +3,7 @@ class Address < ApplicationRecord
 
   validates :name, presence: true
   validates :postal_code, presence: true
+  validates :postal_code, length: { is: 7 }
   validates :address, presence: true
 
   def full_shipping_address
