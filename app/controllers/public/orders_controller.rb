@@ -76,8 +76,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    if params[:id] == "check"
+      redirect_to cart_products_path
+    else
     @order = Order.find(params[:id])
     @ordered_products = OrderedProduct.where(order_id: @order.id)
+    end
   end
 
   def my_info
