@@ -24,7 +24,7 @@
             </tr>
           </thead>
 
-          <% @cart_products.each do |cart_product|%>
+        <% @cart_products.each do |cart_product|%>
           <!--合計金額算出用の変数-->
           <% sub_total = (cart_product.product.ex_price * @tax * cart_product.quantity).floor %>
           <% @sum += sub_total %>
@@ -49,15 +49,14 @@
                 <% end %>
               </td>
               <td class="align-middle">
-                <% floor_price = (cart_product.product.ex_price * @tax).floor  %>
-                <%= (floor_price * cart_product.quantity).to_s(:delimited) %>
+                <%= (cart_product.product.ex_price * @tax * cart_product.quantity).floor.to_s(:delimited) %>
               </td>
               <td class="align-middle">
-                <%= link_to "削除する", cart_product_path(cart_product.id), method: :delete, data: { confirm: "本当にカートを空にしますか？" }, class:"btn btn-sm btn-danger mini-btn" %>
+                <%= link_to "削除する", cart_product_path(cart_product.id), method: :delete, data: { confirm: "本当にカートを空にしますか？" }, class:"btn btn-sm btn-danger" %>
               </td>
             </tr>
+        <% end %>
           </tbody>
-          <% end %>
         </table>
       </div>
 
@@ -80,14 +79,13 @@
         <span><%= link_to "情報入力に進む", orders_input_path, class:"btn btn-sm btn-success biggest-btn" %></span>
       </div>
 
-    <% else %>
 
+    <% else %>
       <p class="empty-message">まだカートに商品はありません!<p>
 
       <div class="link-to-top">
         <%= link_to "商品を見てみよう！", products_path, class:"btn btn-sm btn-primary biggest-btn" %>
       </div>
-
     <% end %>
   </div>
 </main>

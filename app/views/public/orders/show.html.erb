@@ -94,7 +94,7 @@
               <%= ordered_product.product.name %>
             </td>
             <td>
-              <%= (ordered_product.product.ex_price * @tax).floor.to_s(:delimited) %>
+              <%= (ordered_product.product.ex_price * @tax).floor.to_i.to_s(:delimited) %>
             </td>
             <td>
               <%= ordered_product.quantity %>
