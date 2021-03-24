@@ -63,8 +63,6 @@ class Public::OrdersController < ApplicationController
         @ordered_product.purchased_price = cart_product.product.ex_price
         @ordered_product.save
       end
-
-    byebug
     # カート内全消去
     @cart_products.destroy_all
     redirect_to orders_complete_path

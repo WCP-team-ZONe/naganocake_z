@@ -1,3 +1,54 @@
 // Place all the styles related to the public::members controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.member-info-table {
+  margin-left: 0!important;
+  margin-bottom: 50px!important;
+}
+
+.category-title {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.withdraw-page {
+  text-align:center;
+  padding: 130px 0 100px;
+}
+
+.withdraw-message {
+  margin: 50px auto;
+}
+
+.withdraw-btn-area {
+  padding: 50px 0;
+}
+
+.sign-in-title {
+  margin-top: 50px;
+}
+
+.sign-in-btn {
+  margin-left: 130px;
+}
+
+.fix-margin {
+  margin-left: 10px!important;
+}
+
+.already-sign-up {
+  margin-top: 50px;
+}
+
+.link-to-sign-in {
+  font-size: 1.3rem;
+  margin: 30px 0 40px 320px;
+}
+
+.sign-up-error {
+  margin: 0 auto;
+  width: 80%;
+  padding: 50px 0 0;
+  text-align: cetner;
+}

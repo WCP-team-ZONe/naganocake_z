@@ -49,10 +49,11 @@
                 <% end %>
               </td>
               <td class="align-middle">
-                <%= (cart_product.product.ex_price * @tax * cart_product.quantity).floor.to_s(:delimited) %>
+                <% floor_price = (cart_product.product.ex_price * @tax).floor  %>
+                <%= (floor_price * cart_product.quantity).to_s(:delimited) %>
               </td>
               <td class="align-middle">
-                <%= link_to "削除する", cart_product_path(cart_product.id), method: :delete, data: { confirm: "本当にカートを空にしますか？" }, class:"btn btn-sm btn-danger" %>
+                <%= link_to "削除する", cart_product_path(cart_product.id), method: :delete, data: { confirm: "本当にカートを空にしますか？" }, class:"btn btn-sm btn-danger mini-btn" %>
               </td>
             </tr>
           </tbody>
