@@ -1,103 +1,70 @@
-<div class="container">
-  <div class="row">
-    <div class="private-product-title">
-      <div class="row">
-        <div class="col-xs-6 col-xs-offset-0">
-          <h2><span style="background-color:#f5f5f5">商品編集</span></h2>
-        </div>
-      </div>
-    </div>
+<div class="title-group">
+  <div class="title">
+    <h4>商品編集</h4>
   </div>
+</div>
 
-    <!--エラーメッセージ-->
-    <div class="error-text">
-    	<% if @product.errors.any? %>
-    		<h2><%= @product.errors.count %>errors prohibited this book from being saved:</h2>
-    			<ul>
-    			<% @product.errors.full_messages.each do |message| %>
-    				<li><%= message %></li>
-    			<% end %>
-    			</ul>
-    	<% end %>
-    </div>
+<div class="error-text">
+	<% if @product.errors.any? %>
+		<h2><%= @product.errors.count %>errors prohibited this book from being saved:</h2>
+			<ul>
+			<% @product.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+	<% end %>
+</div>
 
-  <%= form_with model: @product, url:private_product_path(@product.id), local: true  do |f| %>
-    <div class="row">
-      <table>
-          <div class="col-4">
-            <tr>
-              <td width="150">
-                  商品画像
-              </td>
-              <td>
-                  <%= attachment_image_tag @product, :image,format: "jpg", fallback: "no_image.jpg", size:"50x50" %>
-                  <%= f.attachment_field :image, placeholder:"商品画像" %>
-              </td>
-            </tr>
-           </div>
-          <div class="form-group">
-            <tr>
-              <td>
-                  <%= f.label :name, "商品名" %>
-              </td>
-              <td>
-                  <%= f.text_field :name, placeholder: "商品名" %>
-              </td>
-            </tr>
-          </div>
-          <div class="form-group">
-            <tr>
-              <td>
-                  <%= f.label :description, "商品説明" %>
-              </td>
-              <td>
-                  <%= f.text_area :description, placeholder: "ここに説明文を記述します", size: "30x5" %>
-              </td>
-            </tr>
-          </div>
-          <div class="form-group">
-            <tr>
-              <td>
-                  <%= f.label :genre_id, "ジャンル" %>
-              </td>
-              <td>
-                  <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "-- 選択してください --", class: "form-control" %>
-              </td>
-            </tr>
-          </div>
-          <div class="form-group">
-            <tr>
-              <td>
-                  <%= f.label :ex_price, "税抜価格" %>
-              </td>
-              <td>
-                  <%= f.text_field :ex_price, placeholder: "1000" %>円
-              </td>
-            </tr>
-          </div>
+<%= form_with model: @product, url:private_product_path(@product.id), local: true do |f| %>
+  <div class="row">
+    <table>
+      <div class="col-xs-4">
+        <tr>
+          <th class="text-left vertical" width="30%">商品画像</th>
+          <td class="text-left">
+            <%= f.attachment_field :image, placeholder:"商品画像" %>
+          </td>
+        </tr>
+       </div>
         <div class="form-group">
           <tr>
-            <td>
-                <%= f.label :is_active, "販売ステータス" %>
-            </td>
-            <td>
-                <%= f.radio_button :is_active, true%>
+            <th class="text-left vertical" width="130px"><%= f.label :name, "商品名" %></th>
+            <td class="text-left"><%= f.text_field :name, placeholder: "商品名" %></td>
+          </tr>
+        </div>
+        <div class="form-group">
+          <tr>
+            <th class="text-left vertical" width="30%"><%= f.label :description, "商品説明" %></th>
+            <td class="text-left"><%= f.text_area :description, placeholder: "ここに説明文を記述します", size: "30x5" %></td>
+          </tr>
+        </div>
+        <div class="form-group">
+          <tr>
+            <th class="text-left vertical" width="30%"><%= f.label :genre_id, "ジャンル" %></th>
+            <td class="text-left"><%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "-- 選択してください --", class: "form-control" %></td>
+          </tr>
+        </div>
+        <div class="form-group">
+          <tr>
+            <th class="text-left vertical" width="30%"><%= f.label :ex_price, "税抜価格" %></th>
+            <td class="text-left"><%= f.text_field :ex_price, placeholder: "1000" %>円</td>
+          </tr>
+        </div>
+        <div class="form-group">
+          <tr>
+            <th class="text-left vertical" width="30%"><%= f.label :is_active, "販売ステータス" %></th>
+            <td class="text-left">
+                <%= f.radio_button :is_active, true %>
                 <%= f.label :is_active, "販売中", {value: :true} %>
                 <%= f.radio_button :is_active, false, class: "ml-3" %>
                 <%= f.label :is_active, "販売停止中", {value: :false} %>
             </td>
           </tr>
         </div>
-
-        <div class="col-8 text-center">
-          <tr>
-            <td></td>
-            <td>
-                <%= f.submit "変更を保存" , class: "btn btn-success"  %>
-            </td>
-          </tr>
-        </div>
-      </table>
-    </div>
-  <% end %>
-</div>
+    </table>
+  </div>
+  <div class="submit-btn">
+    <%= f.submit "変更を保存" , class: "btn btn-success"  %>
+  </div>
+<% end %>
+<br>

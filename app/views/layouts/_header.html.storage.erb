@@ -5,12 +5,12 @@
         <div class=Nagano-CAKE-image>
           <% if admin_signed_in? %>
             <%=link_to  private_orders_path do %>
-              <%= image_tag "image-logo1.png", :size => '200x80' %>
+              <%= image_tag "image-logo1.png", :size => '200x100' %>
             <% end %>
           <% else member_signed_in?  %>
             <div class=logo-image>
               <%=link_to  root_path do %>
-              <%= image_tag "image-logo1.png", :size => '200x80' %>
+              <%= image_tag "image-logo1.png", :size => '200x100' %>
             </div>
             <% end %>
           <% end %>
@@ -25,8 +25,8 @@
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
   <ul class="navbar-nav ml-auto">
       <% if member_signed_in? %>
-        <li class="nav-item mr-3 mt-2">
-          ようこそ、<%= current_member.family_name %>さん !
+        <li class="nav-item">
+          ようこそ、<%= current_member.family_name %>さん!
         </li>
         <li class="nav-item">
           <%= link_to "マイページ", member_path(current_member), class: "btn btn-outline-secondary" %>
@@ -43,7 +43,6 @@
 
       <!--管理者ログイン時-->
       <% elsif admin_signed_in? %>
-      <div class="admin-sign">
         <li class="nav-item">
           <%= link_to "商品一覧", private_products_path, class: "btn btn-outline-secondary" %>
         </li>
@@ -59,11 +58,14 @@
         <li class="nav-item">
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary" %>
         </li>
-        <!--検索フォーム（表示だけ）-->
-        <div class="search-form text-right">
+
+       <!--検索フォーム（表示だけ）-->
+
+        <div class="search-form-box">
+          <div class="search-form">
           <%= render "layouts/search" %>
+          </div>
         </div>
-      </div>
 
       <% else %>
         <!--ログインしていない時-->
