@@ -1,39 +1,43 @@
-<div calss="container">
-  <div class="row">
-    <div class="field col-md-2 offset-md-2 py-3">
-      <h3 class="bg-light text-center">ログイン</h3>
-    </div>
-
-    <div class="col-md-11 offset-md-1">
-      <div class="field col-sm-4 offset-sm-3 py-1">
-        <h5 class="bg-light text-center">会員の方はこちらからログイン</h5>
-      </div>
-      <%= form_with model: @member, url: member_session_path, local: true do |f| %>
-      <div class="field col-md-9 offset-md-3 py-1">
-        <%= f.label :"メールアドレス", class:"col-sm-2" %>
-        <%= f.email_field :email, autofocus: true,autocomplete: "email", class:"col-sm-3"  %>
+<main>
+  <div calss="container">
+    <div class="row">
+      <div>
+        <%= render "devise/shared/error_messages", resource: resource %>
       </div>
 
-      <div class="field col-md-9 offset-md-3 py-1">
-        <%= f.label :"パスワード",class:"col-sm-2" %>
-        <%= f.password_field :password,autocomplete: "current-password", class:"col-sm-3"  %>
+      <div class="field col-md-2 offset-md-2 py-3">
+        <h3 class="bg-white text-center sign-in-title pt-2 pb-2">ログイン</h3>
       </div>
 
-      <div class="actions col-md-9 offset-md-3 py-3">
-        <%= f.submit "ログイン", class:"col-sm-2 offset-sm-2 btn-primary text-white" %>
+      <div class="col-md-11 offset-md-1">
+        <div class="field col-sm-4 offset-sm-3 py-1">
+          <h5 class="bg-white text-center pt-2 pb-2 mt-3 mb-3">会員の方はこちらからログイン</h5>
+        </div>
+        <%= form_with model: @member, url: member_session_path, local: true do |f| %>
+        <div class="field col-md-9 offset-md-3 py-1 mt-3 mb-3">
+          <%= f.label :"メールアドレス", class:"col-sm-2" %>
+          <%= f.email_field :email, autofocus: true,autocomplete: "email", class:"col-sm-3" %>
+        </div>
+
+        <div class="field col-md-9 offset-md-3 py-1 mb-3">
+          <%= f.label :"パスワード",class:"col-sm-2" %>
+          <%= f.password_field :password,autocomplete: "current-password", class:"col-sm-3"  %>
+        </div>
+
+        <div class="actions col-md-9 offset-md-3 py-3">
+          <%= f.submit "ログイン", class:"col-sm-2 btn-primary text-white sircle-btn p-2 sign-in-btn" %>
+        </div>
+        <% end %>
+
+        <div class="field col-sm-4 offset-sm-3 mt-5">
+          <h5 class="bg-white text-center pt-2 pb-2 mt-3 mb-3">会員登録がお済でない方</h5>
+          <br>
+
+          <p class="text-center mt-3">
+      　     <%= link_to "こちら", new_member_registration_path %>から新規登録を行ってください！
+      　   </p>
+        </div>
       </div>
-      <% end %>
-
-      <div class="field col-sm-4 offset-sm-3 mt-5">
-        <h5 class="bg-light text-center">会員登録がお済でない方</h5>
-      </div>
-
-      <div class="field col-sm-4 offset-sm-4">
-    　   <p>
-    　    <%= link_to "こちら", new_member_registration_path %>から新規登録を行ってください。
-    　   </p>
-    　</div>
-
     </div>
   </div>
-</div>
+</main>

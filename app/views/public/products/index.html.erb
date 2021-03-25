@@ -11,7 +11,7 @@
   <div class="container product-container">
     <% @products.each do |product| %>
       <div class="product-box">
-        <%= link_to (attachment_image_tag product, :image, :fill, 225, 175), product_path(product.id) %>
+        <%= link_to (attachment_image_tag product, :image, size:"225x175"), product_path(product.id) %>
         <p><%= product.name %></p>
         <p>¥<%= (product.ex_price * @tax).floor.to_s(:delimited) %></p>
       </div>
