@@ -1,10 +1,10 @@
 # 長野CAKE  TEAM　ZONe
 ***
 
-##説明
+## 説明
 ***
 
-##ER図
+## ER図
 ***
 ![ER図](image/Readme/ER図.jpg)
 
