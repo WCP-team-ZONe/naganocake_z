@@ -19,14 +19,7 @@
 ### 実装機能
 　会員側(顧客)
 
-| Left align | Right align | Center align |
-|:-----------|------------:|:------------:|
-| This       |        This |     This     |
-| column     |      column |    column    |
-| will       |        will |     will     |
-| be         |          be |      be      |
-| left       |       right |    center    |
-| aligned    |     aligned |   aligned    |
+
  
 ## 開発環境　
 Ruby on Rails
