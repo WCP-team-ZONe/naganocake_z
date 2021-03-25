@@ -36,7 +36,19 @@
 Ruby on Rails
 
 ### バージョン
----
+- Rails 5.2.4.5
+- Ruby 2.6.3
+- gem
+  - devise
+  - refile
+  - refile-mini_magick
+  - kaminari
+  - bootstrap
+  - jquery-rails
+  - font-awesome-sass
+  - rubocop
+  - rubocop-rails
+
 ## 開発者
 
 ### チーム名
