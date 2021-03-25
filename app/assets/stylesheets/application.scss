@@ -524,12 +524,12 @@ h4 {
   height:40px;
 }
 
-.genre-table{
+.genre-table {
   position:relative; left:30px;
 }
 
 //----------タイトル---------------//
-.title-group{
+.title-group {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -538,7 +538,7 @@ h4 {
   margin-right: 100px;
 }
 
-.title{
+.title {
   background-color:#f5f5f5;
   width:250px;
   text-align:center;
@@ -552,6 +552,7 @@ h4 {
 .alert {
   text-align: center!important;
   background-color: rgba(255, 182, 193, 0.1);
+  margin-bottom: 0!important;
 }
 
 // deviceエラーメッセージ出現時にレイアウトが崩れる問題を
@@ -560,4 +561,26 @@ h4 {
   input {
     @extend .is-invalid;
   }
+}
+
+.admins-sign-up-form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.admins-sign-up-form > h2 {
+  padding: 35px 0;
+}
+
+.admins-link-to-sign-in {
+  background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
+  border-width: 2px;
+  border-style: outset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+  margin: 15px 0 50px;
+}
+
+.admins-sign-up-btn {
+  padding: 6px!important;
 }
