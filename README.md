@@ -1,7 +1,12 @@
 # 長野CAKE  TEAM　ZONe
+***
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##説明
+***
+
+##ER図
+***
+![ER図](image/Readme/ER図.jpg)
 
 Things you may want to cover:
 
