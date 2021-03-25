@@ -19,11 +19,13 @@
 
 ## アプリケーション詳細設計書
 **会員側**
-<img width="666" alt="スクリーンショット 2021-03-25 18 03 24" src="https://user-images.githubusercontent.com/76931463/112447453-af42d100-8d94-11eb-9c67-30261d2bcf60.png">
-<img width="666" alt="スクリーンショット 2021-03-25 18 03 41" src="https://user-images.githubusercontent.com/76931463/112447653-e7e2aa80-8d94-11eb-8c57-2ba57edb638e.png">
+
+<img width="666" alt="スクリーンショット 2021-03-25 18 03 24" src="https://user-images.githubusercontent.com/76931463/112448134-6b9c9700-8d95-11eb-9459-f982cde33408.png">
+<img width="666" alt="スクリーンショット 2021-03-25 18 03 41" src="https://user-images.githubusercontent.com/76931463/112448149-72c3a500-8d95-11eb-8374-da0bd56f571b.png">
 
 **管理者側**
-<img width="734" alt="スクリーンショット 2021-03-25 18 04 53" src="https://user-images.githubusercontent.com/76931463/112447711-f7fa8a00-8d94-11eb-81ed-cfedb5a795ec.png">
+
+<img width="737" alt="スクリーンショット 2021-03-25 18 10 11" src="https://user-images.githubusercontent.com/76931463/112448168-79521c80-8d95-11eb-9171-7cb8b59c6b3e.png">
 
 ## 実装機能
 
