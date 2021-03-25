@@ -44,6 +44,8 @@
   - 会員ステータス編集
   - 注文履歴(一覧・詳細)
   - 注文ステータス・製作ステータス編集
+<img src=https://user-images.githubusercontent.com/76931463/112450532-d8189580-8d97-11eb-9acd-716c3ccd041a.gif  width="800">
+
  
 ## 開発環境　
 Ruby on Rails
