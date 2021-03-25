@@ -1,65 +1,48 @@
-<div class="container">
-  <div class="private-product-title">
-    <div class="row">
-      <h2><span style="background-color:#f5f5f5">商品詳細</span></h2>
-    </div>
+<div class="title-group">
+  <div class="title">
+    <h4>商品詳細</h4>
   </div>
+</div>
 
+<div class="container">
   <div class="row">
-    <div class="col-md-3">
-      <%= attachment_image_tag @product, :image, format: "jpg", fallback: "no_image.jpg", size:"200x200" %>
+    <div class="col-3 m-2">
+      <%= attachment_image_tag @product, :image, format: "jpg", fallback: "no_image.jpg", size:"250x200" %>
     </div>
-    <div class="col-xs-4">
+    <div class="col-5 m-2">
       <table>
         <tr>
-          <td width="150">
-            商品名
-          </td>
-          <td width="200">
-            <%= @product.name %>
-          </td>
+          <td class="text-left" width="150">商品名</td>
+          <td class="text-left" width="200"><%= @product.name %></td>
         </tr>
         <tr>
-          <td>
-            商品説明
-          </td>
-          <td>
-            <%= @product.description %>
-          </td>
+          <td class="text-left" height="50">商品説明</td>
+          <td class="text-left"><%= @product.description %></td>
         </tr>
         <tr>
-          <td>
-            ジャンル
-          </td>
-          <td>
-            <%= @product.genre.name %>
-          </td>
+          <td class="text-left" height="30">ジャンル</td>
+          <td class="text-left"><%= @product.genre.name %></td>
         </tr>
         <tr>
-          <td>
-            税込価格<br>(税抜価格)
-          </td>
-          <td>
-            <%= ((@product.ex_price*1.1).round(2).ceil) %>&ensp;(<%= @product.ex_price %>)円
-          </td>
+          <td class="text-left" height="30">税込価格<br>(税抜価格)</td>
+          <td class="text-left"><%= ((@product.ex_price*1.1).round(2).ceil) %>&ensp;(<%= @product.ex_price %>)円</td>
         </tr>
         <tr>
-          <td>
-            販売ステータス
-          </td>
-          <td>
-            <% if @product.is_active == true %>
-              <p class="text-success">販売中</p>
-            <% elsif @product.is_active == false %>
-              <p class="text-muted">販売停止中</p>
-            <% end %>
-          </td>
+          <td class="text-left">販売ステータス</td>
+            <td class="text-left status">
+              <% if @product.is_active == true %>
+                <p class="text-success">販売中</p>
+              <% elsif @product.is_active == false %>
+                <p class="text-muted">販売停止中</p>
+              <% end %>
+            </td >
         </tr>
       </table>
     </div>
   </div>
 </div>
-  <!--<div class="edit-btn">-->
-  <div class="col-11 text-center">
-      <%= link_to "編集する", edit_private_product_path(@product.id), class: "btn btn-success" %>
-  </div>
+<br>
+<div class="col-11 text-center">
+    <%= link_to "編集する", edit_private_product_path(@product.id), class: "btn btn-success" %>
+</div>
+<br>

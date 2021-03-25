@@ -43,7 +43,6 @@
 
       <!--管理者ログイン時-->
       <% elsif admin_signed_in? %>
-      <div class="admin-sign">
         <li class="nav-item">
           <%= link_to "商品一覧", private_products_path, class: "btn btn-outline-secondary" %>
         </li>
@@ -59,11 +58,14 @@
         <li class="nav-item">
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary" %>
         </li>
-        <!--検索フォーム（表示だけ）-->
-        <div class="search-form text-right">
+
+       <!--検索フォーム（表示だけ）-->
+
+        <div class="search-form-box">
+          <div class="search-form">
           <%= render "layouts/search" %>
+          </div>
         </div>
-      </div>
 
       <% else %>
         <!--ログインしていない時-->

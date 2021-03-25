@@ -1,68 +1,34 @@
-<div class="">
-<!--  <div class="row">-->
-<!--    <div class="col-md-12 text-center">-->
-<!--      <div class="text-title bg-light ">-->
-<!--        <h4>商品一覧-->
-<!--        <span>< %= link_to "＋", new_private_product_path, class: "btn btn-outline-dark", style: "border-radius: 100%" %></span><h4>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-	 <!--<div class="row">-->
-	 <!-- <div class="col-2 h-50">-->
-	 
-		  <div class="private-product-title">
-			  <h4>商品一覧</h4>
-			</div>
-	  <!--</div>-->
-			<!--<div class="col-10">-->
-  			<div class="text-right">
-  				<%= link_to "＋", new_private_product_path, class: "btn btn-outline-dark", style: "border-radius: 100%" %>
-  			</div>
-  		</div>
-	<!--		</div>-->
-	<!--</div>-->
-
+<div class="private-product">
+	  <div class="private-product-title">
+		  <h4>商品一覧</h4>
+		</div>
+		<div class="new-registrarion-btn">
+			<%= link_to "＋", new_private_product_path, class: "btn btn-outline-dark", style: "border-radius: 100%" %>
+		</div>
+</div>
 
 <div class="container">
     <div scope="row">
-        <!--<div class="col-md-6 col-xs-offset-1">-->
         <div class="col">
             <table class="table table-hover table-resposive ">
                 <thead class="thead-color">
                     <tr>
-                        <td>
-                            商品ID
-                        </td>
-                        <td>
-                            商品名
-                        </td>
-                        <td>
-                            税抜価格
-                        </td>
-                        <td>
-                            ジャンル
-                        </td>
-                        <td class="class="text-center"">
-                            販売ステータス
-                        </td>
+                        <td>商品ID</td>
+                        <td>商品名</td>
+                        <td>税抜価格</td>
+                        <td>ジャンル</td>
+                        <td class="class="text-center"">販売ステータス</td>
                     </tr>
                 </thead>
                 <tbody>
                     <% @products.each do |product| %>
                         <tr>
-                            <td>
-                                <%= product.id%>
-                            </td>
-                            <td>
-                                <%= link_to product.name, private_product_path(product.id)%>
-                            </td>
-                            <td>
-                                ¥<%= (product.ex_price * @tax).floor.to_s(:delimited) %>
+                            <td><%= product.id%></td>
+                            <td><%= link_to product.name, private_product_path(product.id)%></td>
+                            <td>¥<%= (product.ex_price * @tax).floor.to_s(:delimited) %>
                                 <!--<#%= number_with_delimiter(product.ex_price) %>-->
                             </td>
-                            <td>
-                                <%= product.genre.name %>
-                            </td>
+                            <td><%= product.genre.name %></td>
                             <td class="text-center">
                                 <% if product.is_active == true %>
                                   <p class="text-success">販売中</p>
@@ -76,6 +42,7 @@
             </table>
         </div>
     <div class="paginate">
-        <%= paginate @products %>
+      <%= paginate @products %>
     </div>
 </div>
+<br>
