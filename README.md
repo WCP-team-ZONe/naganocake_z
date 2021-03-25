@@ -17,6 +17,15 @@
 
 ![ER図](https://user-images.githubusercontent.com/76931463/112425381-4f8afc80-8d79-11eb-8991-73e4b61d4727.jpg)
 
+## アプリケーション詳細設計書
+**会員側**
+<img width="666" alt="スクリーンショット 2021-03-25 18 03 24" src="https://user-images.githubusercontent.com/76931463/112447453-af42d100-8d94-11eb-9c67-30261d2bcf60.png">
+<img width="666" alt="スクリーンショット 2021-03-25 18 03 41" src="https://user-images.githubusercontent.com/76931463/112447653-e7e2aa80-8d94-11eb-8c57-2ba57edb638e.png">
+
+**管理者側**
+<img width="666" alt="スクリーンショット 2021-03-25 18 03 41" src="https://user-images.githubusercontent.com/76931463/112447653-e7e2aa80-8d94-11eb-8c57-2ba57edb638e.png">
+<img width="734" alt="スクリーンショット 2021-03-25 18 04 53" src="https://user-images.githubusercontent.com/76931463/112447711-f7fa8a00-8d94-11eb-81ed-cfedb5a795ec.png">
+
 ## 実装機能
 
 - 会員側(顧客)
@@ -25,6 +34,7 @@
   - 商品購入(カートに入れる・注文)
   - 注文履歴詳細確認
 <img src="https://user-images.githubusercontent.com/76931463/112446639-c503c680-8d93-11eb-8942-a093e41cfeec.gif"  width="800">
+
 
 
 - 管理者側
