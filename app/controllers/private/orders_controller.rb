@@ -6,8 +6,10 @@ class Private::OrdersController < ApplicationController
   end
 
   def show
+    @full_price = 0
     @order = Order.find(params[:id])
     @ordered_products = @order.ordered_products
+
   end
 
   def update
