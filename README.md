@@ -18,7 +18,8 @@
 
 ### 実装機能
 　会員側(顧客)
- | Left align | Right align | Center align |
+
+
  
 ## 開発環境　
 Ruby on Rails
