@@ -7,7 +7,7 @@
 
 ## ER図
 ***
-![ER図](image/Readme/ER図.jpg)
+![ER図](https://user-images.githubusercontent.com/76931463/112425381-4f8afc80-8d79-11eb-8991-73e4b61d4727.jpg)
 
 Things you may want to cover:
 
