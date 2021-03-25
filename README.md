@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/76931463/112435800-8f0d1500-8d88-11eb-8935-98145d47f87a.png" width="48">
+<img src="https://user-images.githubusercontent.com/76931463/112435800-8f0d1500-8d88-11eb-8935-98145d47f87a.png" width="300">
 # 長野CAKE  TEAM　ZONe
 
 ## 説明
