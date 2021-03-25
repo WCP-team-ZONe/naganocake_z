@@ -18,7 +18,7 @@
 ![ER図](https://user-images.githubusercontent.com/76931463/112425381-4f8afc80-8d79-11eb-8991-73e4b61d4727.jpg)
 
 ## 実装機能
-![DEMO(1)](https://user-images.githubusercontent.com/76931463/112445153-2aef4e80-8d92-11eb-9f02-6df3f939f7b0.gif)
+![DEMO1](https://user-images.githubusercontent.com/76931463/112446416-83731b80-8d93-11eb-9f9f-50ec9c2361f9.gif)
 
 - 会員側(顧客)
   - 会員登録・編集・退会
