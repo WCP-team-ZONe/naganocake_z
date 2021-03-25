@@ -52,7 +52,7 @@ Ruby on Rails
 ## 開発者
 
 ### チーム名
-**TEAM ZONe**
+**Team ZONe**
 
 ### メンバー
 ・りょうちん
