@@ -20,7 +20,7 @@
 ## アプリケーション詳細設計書
 **会員側**
 
-<img width="666" alt="スクリーンショット 2021-03-25 18 03 24" src="https://user-images.githubusercontent.com/76931463/112448134-6b9c9700-8d95-11eb-9459-f982cde33408.png">
+<img width="670" alt="スクリーンショット 2021-03-25 18 13 02" src="https://user-images.githubusercontent.com/76931463/112448480-c930e380-8d95-11eb-8ac5-ad985c4bf606.png">
 <img width="666" alt="スクリーンショット 2021-03-25 18 03 41" src="https://user-images.githubusercontent.com/76931463/112448149-72c3a500-8d95-11eb-8374-da0bd56f571b.png">
 
 **管理者側**
