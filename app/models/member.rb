@@ -4,9 +4,9 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :addresses
-  has_many :cart_products
-  has_many :orders
+  has_many :addresses, dependent: :destroy
+  has_many :cart_products, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   validates :first_name, presence: true
   validates :family_name, presence: true
@@ -17,7 +17,7 @@ class Member < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true
   validates :phone_number, length: { in: 10..11 }
-  validates :email, uniqueness: true 
+  validates :email, uniqueness: true
   validates :is_deleted, inclusion: { in: [true, false] }
 
   #「退会してる？」を判別
