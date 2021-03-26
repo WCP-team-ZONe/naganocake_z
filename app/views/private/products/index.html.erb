@@ -1,6 +1,6 @@
 <div class="private-product">
 	  <div class="private-product-title">
-		  <h4>商品一覧</h4>
+		  <h4 class="pt-1">商品一覧</h4>
 		</div>
 		<div class="new-registrarion-btn">
 			<%= link_to "＋", new_private_product_path, class: "btn btn-outline-dark", style: "border-radius: 100%" %>
@@ -41,7 +41,7 @@
                 </tbody>
             </table>
         </div>
-    <div class="paginate">
+    <div class="paginate pt-3 m-2">
       <%= paginate @products %>
     </div>
 </div>
