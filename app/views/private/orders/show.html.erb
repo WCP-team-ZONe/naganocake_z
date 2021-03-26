@@ -79,7 +79,7 @@
           <td><%= (1.1*ordered_product.product.ex_price).floor.to_s(:delimited) %></td>
           <td><%= ordered_product.quantity %></td>
           <td><% floor_price = (1.1*ordered_product.purchased_price).floor %>
-              <%=  (floor_price*ordered_product.quantity).to_s(:delimited)  %>
+              <%= (floor_price*ordered_product.quantity).to_s(:delimited) %>
           </td>
         <%= form_with model: ordered_product, url: private_ordered_product_path(ordered_product), local: true, method: :patch do |f|  %>
           <td>
