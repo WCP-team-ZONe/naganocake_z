@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Members::SessionsController < Devise::SessionsController
-   before_action :reject_member, only: [:create]
-
   protected
 
   def reject_member

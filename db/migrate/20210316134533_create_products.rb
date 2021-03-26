@@ -9,7 +9,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.integer :ex_price, null: false
       t.string :image_id, null: false
       t.boolean :is_active, null: false, default: 'true'
-      
+
     end
   end
 end
