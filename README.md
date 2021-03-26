@@ -24,7 +24,7 @@
 
 **管理者側**
 
-<img width="737" alt="スクリーンショット 2021-03-25 18 10 11" src="https://user-images.githubusercontent.com/76931463/112448168-79521c80-8d95-11eb-9171-7cb8b59c6b3e.png">
+<img width="760" alt="スクリーンショット 2021-03-25 21 06 59" src="https://user-images.githubusercontent.com/76931463/112470563-29cc1a80-8dae-11eb-9936-ccf5e593088b.png">
 
 ## 実装機能
 
