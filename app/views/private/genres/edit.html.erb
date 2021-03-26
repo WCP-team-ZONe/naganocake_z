@@ -1,2 +1,39 @@
-<h1>Genres#edit</h1>
-<p>Find me in app/views/genres/edit.html.erb</p>
+<div class="title-group">
+  <div class="title">
+    <h4>ジャンル編集</h4>
+  </div>
+</div>
+
+<div class="container">
+
+  <!--エラーメッセージ-->
+  <div class="error-text">
+  	<% if @genre.errors.any? %>
+  		<h2><%= @genre.errors.count %>errors prohibited this book from being saved:</h2>
+  			<ul>
+  			<% @genre.errors.full_messages.each do |message| %>
+  				<li><%= message %></li>
+  			<% end %>
+  			</ul>
+  	<% end %>
+  </div>
+
+    <div class="genre-form">
+      <div class="row">
+        <div class="form-horizontal" role="form">
+          <%= form_with model:@genre, url:private_genre_path, local: true do |f| %>
+            <div class="form-group  col-12 p-3">
+              <%= f.label :name, "ジャンル名" %>
+              <%= f.text_field :name %>
+              <%= f.submit "変更を保存", class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>

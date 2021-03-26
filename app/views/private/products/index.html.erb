@@ -1,2 +1,48 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="private-product">
+	  <div class="private-product-title">
+		  <h4 class="pt-1">商品一覧</h4>
+		</div>
+		<div class="new-registrarion-btn">
+			<%= link_to "＋", new_private_product_path, class: "btn btn-outline-dark", style: "border-radius: 100%" %>
+		</div>
+</div>
+
+<div class="container">
+    <div scope="row">
+        <div class="col">
+            <table class="table table-hover table-resposive ">
+                <thead class="thead-color">
+                    <tr>
+                        <td>商品ID</td>
+                        <td>商品名</td>
+                        <td>税抜価格</td>
+                        <td>ジャンル</td>
+                        <td class="class="text-center"">販売ステータス</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @products.each do |product| %>
+                        <tr>
+                            <td><%= product.id%></td>
+                            <td><%= link_to product.name, private_product_path(product.id)%></td>
+                            <td>¥<%= (product.ex_price * @tax).floor.to_s(:delimited) %>
+                                <!--<#%= number_with_delimiter(product.ex_price) %>-->
+                            </td>
+                            <td><%= product.genre.name %></td>
+                            <td class="text-center">
+                                <% if product.is_active == true %>
+                                  <p class="text-success">販売中</p>
+                                <% elsif product.is_active == false %>
+                                  <p class="text-muted">販売停止中</p>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    <div class="paginate pt-3 m-2">
+      <%= paginate @products %>
+    </div>
+</div>
+<br>

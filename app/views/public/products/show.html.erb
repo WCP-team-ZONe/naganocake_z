@@ -1,2 +1,34 @@
-<h1>Public::Products#show</h1>
-<p>Find me in app/views/public/products/show.html.erb</p>
+<main>
+  <div class="container product-show-box">
+    <div class="product-image">
+      <%= attachment_image_tag @product, :image, size:"250x200" %>
+    </div>
+
+    <div class="product-info">
+      <h3>
+        <%= @product.name %>
+      </h3>
+      <p>
+        <%= @product.description %>
+      </p>
+      <p class="taxed_price">
+        ¥
+        <%= (@product.ex_price * @tax).floor.to_s(:delimited) %>
+        <span>(税込)</span>
+      </p>
+
+      <div class="product-show-form">
+        <%= form_with model: @add_product, url: cart_products_path, local:true do |f| %>
+          <%= f.hidden_field :product_id, value: @product.id %>
+
+          <%= f.select :quantity,
+            {"1":1, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10, "11":11, "12":12, "13":13, "14":14, "15":15},
+            { include_blank: '個数選択　　'},
+            class:"select-quantity"
+          %>
+          <%= f.submit "カートに入れる", class:"btn btn-sm btn-success into-cart" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

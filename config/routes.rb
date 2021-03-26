@@ -1,41 +1,48 @@
 Rails.application.routes.draw do
 
-
-
-
-    
+  # 会員側ルーティング
+  devise_for :members, controllers: {
+    sessions:      'members/sessions',
+    passwords:     'members/passwords',
+    registrations: 'members/registrations'
+  }
 
   scope module: :public do
-    resources :members, only: [:show,:update,:edit]
+    root to: "products#top"
+
     get 'members/withdraw' => "members#withdraw"
     patch 'members/out' => "members#out"
-    resources :products, only:[:index,:show]
-    root to: "products#top" 
+    resources :members, only: [:show,:update,:edit]
+
     get 'products/about' => "products#about"
-    get 'searches/search' => "searches#search"
-    resources :orders, only:[:index,:show,:create]
+    resources :products, only:[:index,:show]
+
     get 'orders/complete' => "orders#complete"
-    get 'orders/:id/input' => "orders#input"
-    post 'orders/:id/check' => "orders#check"
-    resources :addresses, except:[:show,:new]
-    resources :cart_products, only:[:show,:update,:destroy,]
+    get 'orders/input' => "orders#input"
+    post 'orders/check' => "orders#check"
+    resources :orders, only:[:index,:show,:create]
+
     delete 'cart_products' => "cart_products#clear"
     post 'cart_products' => "cart_products#add_products"
+    resources :cart_products, only:[:index,:update,:destroy,]
 
+    resources :addresses, except:[:show,:new]
+
+    get 'searches/search' => "searches#search"
   end
 
+  # 管理者側ルーティング
+  devise_for :admins, controllers: {
+    sessions:      'admins/sessions',
+    passwords:     'admins/passwords',
+    registrations: 'admins/registrations'
+  }
 
-
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :private do
     resources :products
     resources :members, only: [:index,:show,:edit,:update]
     resources :orders, only: [:index,:show,:update]
+    resources :ordered_products, only:[:update]
     resources :genres, only: [:index,:create,:edit,:update]
   end
-  devise_for :admins
-  devise_for :members
-
-
 end

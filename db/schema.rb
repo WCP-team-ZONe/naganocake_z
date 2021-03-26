@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_134747) do
+ActiveRecord::Schema.define(version: 2021_03_26_013049) do
 
   create_table "addresses", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_134747) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
+    t.index ["name"], name: "index_genres_on_name", unique: true
   end
 
   create_table "members", force: :cascade do |t|
@@ -57,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_134747) do
     t.string "postal_code", null: false
     t.string "address", null: false
     t.string "phone_number", null: false
-    t.boolean "is_deleted", null: false
+    t.boolean "is_deleted", default: false, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -85,7 +86,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_134747) do
     t.string "postal_code", null: false
     t.string "address", null: false
     t.string "name", null: false
-    t.integer "paymant", default: 0, null: false
+    t.integer "payment", default: 0, null: false
     t.integer "total_price", null: false
     t.integer "order_status", default: 0, null: false
   end
@@ -99,6 +100,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_134747) do
     t.integer "ex_price", null: false
     t.string "image_id", null: false
     t.boolean "is_active", default: true, null: false
+    t.index ["name"], name: "index_products_on_name", unique: true
   end
 
 end
